@@ -8,4 +8,3 @@ describe('board', function() {
 		expect($('h1').html()).toEqual('Board')
 	});
 });
-
