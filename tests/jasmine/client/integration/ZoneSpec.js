@@ -14,5 +14,7 @@ describe('Zone', function() {
 		expect(hash.order).toEqual(1);
 	});
 
-
+	it('should have a board ID', function() {
+		expect(hash.boardId).toEqual("2");
+	});
 });
