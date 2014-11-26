@@ -4,7 +4,7 @@
 # but you can also edit it by hand.
 
 meteor-platform
+mike:mocha
 sanjo:jasmine
 velocity:html-reporter
-mike:mocha
 
