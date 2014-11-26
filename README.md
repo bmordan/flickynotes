@@ -8,3 +8,4 @@
 + [Karin Nielsen](https://github.com/karinnielsen)
 + [Daniel Cutler](https://github.com/danjocutler)
 + [Elena Garrone](https://github.com/elenagarrone)
++ [Ana Nogal](https://github.com/ananogal)
