@@ -1,3 +1,6 @@
+Router.route('/', function () {
+})
+
 Router.route('/board', function () {
   this.render('board')
 })
