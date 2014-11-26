@@ -6,3 +6,4 @@ describe('board', function() {
 		expect($('body h1').html()).toEqual('Hello World');
 	});
 });
+

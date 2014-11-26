@@ -8,3 +8,6 @@ Router.route('/board', function () {
 Router.route('/phone', function () {
   this.render('phone')
 })
+
+Meteor.subscribe('postits', 'zones', 'boards');
+
