@@ -1,1 +1,1 @@
-Meteor.subscribe('postits')
+Meteor.subscribe('postits', 'zones');

@@ -16,11 +16,11 @@ describe('Postit',function() {
 	});
 
 	it('should have content', function() {
-		expect(hash.content).toContain("test content");
+		expect(hash.content).toEqual("test content");
 	});
 
 	it("should have a zone", function(){
-		expect(hash.zone).toContain("1")
+		expect(hash.zone).toEqual("1")
 	});
 
 });
