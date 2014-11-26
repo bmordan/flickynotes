@@ -1,8 +1,10 @@
 
 describe('board', function() {
-	 beforeEach(waitForRouter);
+	beforeEach(waitForRouter)
 
-	it('example test', function(){
-		expect($('body h1').html()).toEqual('Hello World');
+	it('should have a board route', function(){
+		if(location.pathname !=='/board')
+			window.location='/board'
+		expect($('h1').html()).toEqual('Board')
 	});
 });
