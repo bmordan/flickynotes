@@ -9,3 +9,4 @@
 + [Daniel Cutler](https://github.com/danjocutler)
 + [Elena Garrone](https://github.com/elenagarrone)
 + [Ana Nogal](https://github.com/ananogal)
++ [Bernard Mordan](https://github.com/bmordan)
