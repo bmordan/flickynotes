@@ -8,3 +8,5 @@ mike:mocha
 sanjo:jasmine
 velocity:html-reporter
 iron:router
+nblazer:casperjs
+

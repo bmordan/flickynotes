@@ -1,13 +1,10 @@
-(function (Meteor, Tracker, Router) {
+// (function (Meteor, Tracker, Router) {
 
-  window.visitTheBoard = function (done) {
-     $('#boardLink').click(function(){
-       done()
-     })
-  }
+//   window.visitTheBoard = function (done) {
 
-})(Meteor, Tracker, Router);
+//      $('#boardLink').click(function(){
+//        done()
+//      })
+//   }
 
-
-
-
+// })(Meteor, Tracker, Router);
