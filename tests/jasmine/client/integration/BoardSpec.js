@@ -1,10 +1,10 @@
 
-describe('board', function() {
-	beforeEach(waitForRouter)
+// describe('the board page', function() {
+	
+//   beforeEach(waitForRouter)
 
-	it('should have a board route', function(){
-		if(location.pathname !=='/board')
-			window.location='/board'
-		expect($('h1').html()).toEqual('Board')
-	});
-});
+// 	it('should have a title that reads Demo', function(){
+//     expect($('h1').text()).toEqual('Demo')
+// 	});
+
+// });
