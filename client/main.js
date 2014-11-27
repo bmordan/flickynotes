@@ -1,3 +1,5 @@
+// Meteor.subscribe('Postits', 'Zones', 'Boards');
+
 Router.route('/', function () {
   this.render('home')
 })
@@ -10,5 +12,4 @@ Router.route('/phone', function () {
   this.render('phone')
 })
 
-Meteor.subscribe('postits', 'zones', 'boards');
 

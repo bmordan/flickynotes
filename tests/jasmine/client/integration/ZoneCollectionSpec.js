@@ -1,8 +1,8 @@
 describe('Zone', function() {
 
 	beforeEach(function(){
-		Zone.add("ToDo", 1, "2");
-		arr = Zone.find({}).fetch();
+		Zones.add("ToDo", 1, "2");
+		arr = Zones.find({}).fetch();
 		hash = arr[arr.length -1];
 	});
 

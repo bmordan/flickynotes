@@ -1,4 +1,4 @@
-Postits = new Mongo.Collection("postits");
+Postits = new Mongo.Collection("Postits");
 
 Postits.add = function(content, zone_id){
 	Postits.insert({

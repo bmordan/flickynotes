@@ -1,14 +1,14 @@
-describe('the landing page', function() {
+// describe('the landing page', function() {
   
-  beforeEach(waitForRouter)
+//   beforeEach(waitForRouter)
 
-  it('should have link to the board route', function(){
-    expect($('#boardLink').html()).toEqual('Board') 
-  })
+//   it('should have link to the board route', function(){
+//     expect($('#boardLink').html()).toEqual('Board') 
+//   })
 
-  it('should have a link to the phone route', function(){
-    expect($('#phoneLink').html()).toEqual('Phone')
-  })  
+//   it('should have a link to the phone route', function(){
+//     expect($('#phoneLink').html()).toEqual('Phone')
+//   })  
 
 
-});
+// });
