@@ -10,5 +10,8 @@ Template.board.helpers({
       zones.push(zone)
     })
     return zones
+  },
+  zoneHeight: function(){
+    return $(window).height()-75
   }
 })

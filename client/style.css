@@ -4,9 +4,10 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
       Globals
 ========================*/
 
-html        { width: 100%;height: 100%;}
-img          { max-width: 100%;}
-body        { background-size: 100% 100%;background-repeat: no-repeat;}
+html{ width: 100%;height: 100%;}
+img{ max-width: 100%;}
+body{ background-size: 100% 100%;background-repeat: no-repeat;}
+header, legend{font-family: 'Roboto', sans-serif;}
 
 /*========================
       Media Queries - Phone
@@ -21,5 +22,32 @@ body        { background-size: 100% 100%;background-repeat: no-repeat;}
 ========================*/
 
 @media only screen and (min-width: 45em){  /* DESKTOPS */
-
+  body{
+    width: 100%;
+    background-color: rgba(222,222,222,0.7);
+  }
+  main{
+    width:97%;
+    margin: auto;
+  }
+  header{
+    width: 100%;
+    padding: 0.3% 0% 0.3% 1%;
+    font-size: 213%;
+  }
+  legend, fieldset{
+    background-color: rgb(255,255,255);
+    border: solid 1px rgba(222,222,222,1);
+  }
+  legend{
+    padding: 1% 3% 1% 3%;
+    margin: 0% 0% 0% 15%;
+  }
+  fieldset{
+    float: left;
+    margin: 0% 0.4% 0% 0%;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.23);
+    -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.23);
+    box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.23);
+  }
 }
