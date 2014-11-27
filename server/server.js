@@ -11,19 +11,7 @@
 // });
 
 Meteor.startup(function () {
-  // if(Boards.getDemo().length === 0){
-  if(true === true){
-    var id = new Mongo.ObjectID()
-    var defaultZones = ["Todo","Doing","Done"]
-
-    Boards.insert({_id: id ,title: "Demo",zones: [],zoneWidth: 0})
-
-    _.each(defaultZones, function(newZone){
-      Boards.addZone(id, newZone)
-    })
-
-  }
-
+  Meteor.call('constructDemoBoard')
 });
 
 Meteor.methods({
@@ -31,6 +19,20 @@ Meteor.methods({
      Boards.remove({});
       Zones.remove({});
     Postits.remove({});
-    return "All collections have been set to zero"
+    console.log("All collections have been set to zero")
+  },
+  constructDemoBoard: function(){
+    if(Boards.getDemo().length === 0){
+      var id = new Mongo.ObjectID()
+      var defaultZones = ["Todo","Doing","Done"]
+
+      Boards.insert({_id: id ,title: "Demo",zones: [],zoneWidth: 0}, function(){
+        _.each(defaultZones, function(newZone){
+          Boards.addZone(id, newZone)
+        })   
+      })
+
+    }
+    return true
   }
 })

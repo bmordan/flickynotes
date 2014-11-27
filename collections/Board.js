@@ -8,7 +8,7 @@ Boards.add = function(title){
 	})
 }
 Boards.getDemo = function(){
-  return Boards.find({name: "Demo"}).fetch()
+  return Boards.find({title: "Demo"}).fetch()
 }
 Boards.addZone = function(id, newZoneTitle){
   var zonesArray = _getZonesArray(id)
@@ -20,7 +20,7 @@ Boards.addZone = function(id, newZoneTitle){
 
 function _zoneWidth(zonesArray){
   var windowWidth = 100-zonesArray.length
-  return windowWidth / zonesArray.length
+  return Math.floor(windowWidth / zonesArray.length)
 }
 
 function _getZonesArray(id){

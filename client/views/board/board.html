@@ -1,3 +1,11 @@
 <template name='board'>
-  <h1>Demo</h1>
+  <header>{{board.title}}</header>
+  <main>
+    {{#each zones}}
+      <fieldset style="width:{{board.zoneWidth}}%;">
+        <legend>{{name}}</legend>
+      </fieldset>
+    {{/each}}
+  </main>
+  <footer></footer>
 </template>
