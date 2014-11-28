@@ -11,4 +11,8 @@ describe('the phone page', function() {
     expect($('h1').html()).toEqual('Flicky Notes');
   });
 
+  it ('should contain a form', function(){
+    expect($('form').size()).toEqual(1);
+  });
+
 });
