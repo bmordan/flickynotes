@@ -21,6 +21,70 @@ header, legend{font-family: 'Roboto', sans-serif;}
 
 @media only screen and (min-width: 0em) and (max-width: 44em){
 
+  body {
+    background-color: white;
+  }
+
+  header {
+    background-color: rgba(222,222,222,0.7);
+  }
+
+  h1 {
+    color: grey;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: solid 1px;
+  }
+
+/*                        POST IT OBJECT
+  ===================================================================*/
+
+  #postit-object {
+    text-align:center;
+    width: 275px;
+    margin: 25px;
+    min-height:175px;
+    max-height:175px;
+    padding-top:35px;
+    position:relative;
+    border:1px solid #E8E8E8;
+    border-top:60px solid #fdfd86;
+    font-family:'Reenie Beanie';
+    font-size:22px;
+    border-bottom-right-radius: 60px 5px;
+    display:inline-block;
+    background: #ffff88;
+    background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(81%,#ffff88), color-stop(82%,#ffff88), color-stop(82%,#ffff88), color-stop(100%,#ffffc6));
+    background: -webkit-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
+    background: -o-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
+    background: -ms-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
+    background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 );
+  }
+
+  /*                      POST IT SHADOW
+  ===============================================================*/
+
+  #postit-object-shadow {
+    content: "";
+    position:absolute;
+    z-index: -1;
+    right:-0px; bottom:18px;
+    width:200px;
+    height: 25px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow:3px 20px 7px rgba(0, 0, 0, 0.40);
+  -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+   -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+        -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+       -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+           transform: matrix(-1, -0.1, 0, 1, 0, 0);
+  }
+
+
 }
 
 /*========================
