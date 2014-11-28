@@ -19,4 +19,8 @@ describe('the phone page', function() {
     expect($('textarea').size()).toEqual(1);
   });
 
+  it('should have a column selector', function(){
+    expect($('.carossel').size()).toEqual(1);
+  });
+
 });
