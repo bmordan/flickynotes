@@ -17,3 +17,12 @@ Template.board.helpers({
     return $(window).height()-75
   }
 })
+
+Template.pointer.helpers({
+  x: function() {
+    return Pointer.returnx()
+  },
+  y: function() {
+    return Pointer.returny()
+  }
+})

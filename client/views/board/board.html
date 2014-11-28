@@ -7,5 +7,8 @@
       </fieldset>
     {{/each}}
   </main>
-  <footer></footer>
+  <footer>{{>pointer}}</footer>
 </template>
+
+
+<template name="pointer"><nav style="left: {{x}}px; top: {{y}}px;"> </nav> </template>
