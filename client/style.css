@@ -55,4 +55,12 @@ header, legend{font-family: 'Roboto', sans-serif;}
     -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.23);
     box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.23);
   }
+
+  nav {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    background-color: hotpink;
+  }
+
 }
