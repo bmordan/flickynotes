@@ -15,4 +15,8 @@ describe('the phone page', function() {
     expect($('form').size()).toEqual(1);
   });
 
+  it('should have a textarea', function(){
+    expect($('textarea').size()).toEqual(1);
+  });
+
 });

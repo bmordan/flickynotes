@@ -38,6 +38,14 @@ header, legend{font-family: 'Roboto', sans-serif;}
     border-bottom: solid 1px;
   }
 
+  textarea#text-postit{
+    border: none;
+    resize: none;
+    background-color: #ffff88;
+    height: 165px;
+    width: 95%;
+  }
+
 /*                        POST IT OBJECT
   ===================================================================*/
 
