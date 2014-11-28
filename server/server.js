@@ -6,7 +6,7 @@
 //   return Zone.find({});
 // });
 
-// Meteor.publish('Boards', function() {
+// Meteor.publish('boards', function() {
 //   return Boards.find({});
 // });
 
@@ -20,6 +20,7 @@ Meteor.methods({
      Boards.remove({});
       Zones.remove({});
     Postits.remove({});
+    Pointer.remove({});
     console.log("All collections have been set to zero")
   },
   constructDemoBoard: function(){
