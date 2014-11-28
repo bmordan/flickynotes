@@ -1,0 +1,11 @@
+<template name="board">
+  <header id="{{board._id._str}}">{{board.title}}</header>
+  <main>
+    {{#each zones}}
+      <fieldset id="{{_id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
+        <legend>{{name}}</legend>
+      </fieldset>
+    {{/each}}
+  </main>
+  <footer></footer>
+</template>

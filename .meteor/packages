@@ -6,5 +6,7 @@
 meteor-platform
 sanjo:jasmine
 velocity:html-reporter
-mike:mocha
+iron:router
+insecure
+autopublish
 
