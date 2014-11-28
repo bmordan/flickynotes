@@ -38,3 +38,11 @@
 
 <template name="document_ready">
 </template>
+
+<template name="zones">
+	{{#each zones}}
+		<div class="item active">
+      <h2 id="{{_id}}">{{name}}</h2>
+    </div>
+  {{/each}}
+</template>

@@ -1,5 +1,7 @@
 Template.document_ready.rendered = function(){
-    
+    board = _.first(Boards.getDemo());
+    zones = Zones.allZonesOfABoard(board._id);
+
     $('.carousel').carousel({
       interval: false
     })

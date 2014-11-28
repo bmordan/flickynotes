@@ -24,7 +24,7 @@ describe('the phone page', function() {
   });
 
   it('In order to render the phone template we need the board id', function(){
-    expect()
+    expect($('h2').html()).toEqual('To do');
   });
 
 });
