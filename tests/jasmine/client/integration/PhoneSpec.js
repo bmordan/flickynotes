@@ -20,9 +20,11 @@ describe('the phone page', function() {
   });
 
   it('should have a column selector', function(){
-    expect($('.carossel').size()).toEqual(1);
+    expect($('.carousel').size()).toEqual(1);
   });
 
-  
+  it('In order to render the phone template we need the board id', function(){
+    expect()
+  });
 
 });

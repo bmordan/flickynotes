@@ -17,4 +17,10 @@ describe('Zone', function() {
 	it('should have a board ID', function() {
 		expect(hash.boardId).toEqual("2");
 	});
+
+	it('should return all Zones for a board', function(){
+		board = _.first(Boards.getDemo());
+		collection = Zones.allZonesOfABoard(board._id);
+		expect(collection.length).toEqual(3);
+	});
 });

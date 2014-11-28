@@ -13,3 +13,7 @@ Zones.add = function(name, order, boardId){
   
   return id
 }
+
+Zones.allZonesOfABoard = function(boardId){
+	return Zones.find({boardId: boardId}).fetch();
+};

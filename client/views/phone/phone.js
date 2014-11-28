@@ -1,4 +1,5 @@
 Template.document_ready.rendered = function(){
+    
     $('.carousel').carousel({
       interval: false
     })
@@ -10,9 +11,9 @@ Template.document_ready.rendered = function(){
 
     hammerswipe.on('swipeleft', function(){
         $('.carousel').carousel('next'); 
-    })
+    });
 
     hammerswipe.on('swiperight', function(){
         $('.carousel').carousel('prev'); 
-    })
+    });
 }
