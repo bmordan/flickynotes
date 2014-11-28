@@ -8,7 +8,7 @@
     } else {
       callbacks.push(callback);
     }
-  }
+  };
 
   Router.onAfterAction(function (a, b, c) {
     if (!isRouterReady && this.ready()) {
@@ -29,6 +29,8 @@
 
   Router.onStop(function () {
     isRouterReady = false;
-    this.next();
+    if (this.next) {
+      this.next();
+    }
   });
 })(Meteor, Tracker, Router);

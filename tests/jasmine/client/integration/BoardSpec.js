@@ -2,11 +2,17 @@ describe('the board page', function() {
 	
   beforeEach(function(done){
     Router.go('/board')
-    window.waitForRouter(done)
-  })
+    Tracker.afterFlush(done)
+  }) 
+
+  beforeEach(waitForRouter)
 
 	it('should have a title that reads Demo', function(){
-    expect($('h1').text()).toEqual('Demo')
+    expect($('header').text()).toEqual('Demo')
 	});
+
+  it('should have three columns', function(){
+    expect($('fieldset').size()).toEqual(3)
+  });
 
 });
