@@ -22,15 +22,7 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-      <div class="item active">
-        <h2 ID0¨DFTUF86UI6FI76RI76¨>To do</h2>
-      </div>
-      <div class="item">
-        <h2>Doing</h2>
-      </div>
-      <div class="item">
-        <h2>Done</h2>
-      </div>
+      {{> zones}}
     </div>
 
   </div>
@@ -40,8 +32,8 @@
 </template>
 
 <template name="zones">
-	{{#each zones}}
-		<div class="item active">
+	{{#each zonesCollection}}
+		<div class="item {{selected}}" >
       <h2 id="{{_id}}">{{name}}</h2>
     </div>
   {{/each}}

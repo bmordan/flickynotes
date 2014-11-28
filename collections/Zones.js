@@ -8,7 +8,8 @@ Zones.add = function(name, order, boardId){
     _id: id,
 		name: name,
 		order: order, 
-		boardId: boardId
+		boardId: boardId,
+		selected:""
 	})
   
   return id
