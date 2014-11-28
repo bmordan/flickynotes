@@ -39,11 +39,21 @@ header, legend{font-family: 'Roboto', sans-serif;}
   }
 
   textarea#text-postit{
+    font-family: helvetica;
+    font-size: 15px;
     border: none;
     resize: none;
     background-color: #ffff88;
     height: 165px;
     width: 95%;
+  }
+
+  .carousel {
+    background-color: blue;
+  }
+
+  .carousel-indicators {
+    bottom: -3px
   }
 
 /*                        POST IT OBJECT
@@ -53,8 +63,8 @@ header, legend{font-family: 'Roboto', sans-serif;}
     text-align:center;
     width: 275px;
     margin: 25px;
-    min-height:175px;
-    max-height:175px;
+    min-height:265px;
+    max-height:265px;
     padding-top:35px;
     position:relative;
     border:1px solid #E8E8E8;
