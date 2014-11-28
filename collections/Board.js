@@ -13,14 +13,15 @@ Boards.getDemo = function(){
 Boards.addZone = function(id, newZoneTitle){
   var zonesArray = _getZonesArray(id)
   var newZone = Zones.add(newZoneTitle, zonesArray.length, id)
-  zonesArray.push(newZone)
-  var zoneWidth = _zoneWidth(zonesArray)
-  Boards.update(id,{$set: {zones: zonesArray, zoneWidth: zoneWidth }})
+  Boards.update(id,{$addToSet: {zones: newZone}})
+  _updateWidths(id)
 }
 
-function _zoneWidth(zonesArray){
-  var windowWidth = 100-zonesArray.length
-  return Math.floor(windowWidth / zonesArray.length)
+function _updateWidths(id){
+  var board = Boards.findOne(id)
+  var mainWidth = 100-board.zones.length
+  var updatedWidth = Math.floor(mainWidth/board.zones.length)
+  Boards.update(id,{$set: {zoneWidth: updatedWidth}})
 }
 
 function _getZonesArray(id){
