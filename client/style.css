@@ -25,6 +25,8 @@ header, legend{font-family: 'Roboto', sans-serif;}
     background-color: white;
   }
 
+/*                  HEADER
+===============================================*/
   header {
     background-color: rgba(222,222,222,0.7);
   }
@@ -38,6 +40,28 @@ header, legend{font-family: 'Roboto', sans-serif;}
     border-bottom: solid 1px;
   }
 
+/*                    CAROUSEL
+================================================*/
+  .carousel {
+    background-color: blue;
+  }
+
+  .carousel-indicators {
+    bottom: 3px
+  }
+
+  h2 {
+  font-family: helvetica;
+  font-size: 22px;
+  margin-top: 11px;
+  padding-bottom: 22px;
+  text-align: center;
+  color:white;
+}
+
+/*                        POST IT OBJECT
+  ===================================================================*/
+
   textarea#text-postit{
     font-family: helvetica;
     font-size: 15px;
@@ -47,17 +71,6 @@ header, legend{font-family: 'Roboto', sans-serif;}
     height: 165px;
     width: 95%;
   }
-
-  .carousel {
-    background-color: blue;
-  }
-
-  .carousel-indicators {
-    bottom: -3px
-  }
-
-/*                        POST IT OBJECT
-  ===================================================================*/
 
   #postit-object {
     text-align:center;
