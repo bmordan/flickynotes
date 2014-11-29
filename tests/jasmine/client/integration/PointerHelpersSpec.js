@@ -1,9 +1,10 @@
 describe ("The Pointer Template's helpers", function(){
 
-	beforeEach(function() {
-    	id = new Mongo.ObjectID()
-		Pointer.add(id)
+  var id;
 
+	beforeEach(function() {
+    id = new Mongo.ObjectID()
+		Pointer.add(id)
 	});
 
 	beforeEach(function(done){
@@ -11,42 +12,51 @@ describe ("The Pointer Template's helpers", function(){
     	Tracker.afterFlush(done)
   	}) 
 
-  	beforeEach(waitForRouter)
-
-
-	// it('should return the current value of x', function() {
-	// 	var x = Template.pointer.__helpers[' x']();
-	// 	expect(x).toEqual(10);
-	// })
-
+  beforeEach(waitForRouter)
 
 	it('should assign the database x value to the element css', function() {
-		expect($('nav').css('left')).toEqual('10px')
+		expect($('nav').css('left')).toEqual('100px')
 	});
 
 
 	it('should assign the database y value to the element css', function() {
-		expect($('nav').css('top')).toEqual('20px')
+		expect($('nav').css('top')).toEqual('200px')
 	});
-
-
-	// it('the pointer object should have the x coordinate in its css', function() {
-	// 	// Update pointer object's x coordinate to equal 50
-	// 	expect($('li').css('left')).toEqual('50px')
-	// });
-
-
-	// Go to board route if xy is a specific coordinate and we call 
-	// Pointer.elementon() 
-	// expect(Pointer.elementon().id).toEqual("column1")
-
-	// when you enter a page for the first time, no pointer exists.
-	// Go to route
-	// expect Pointer.find().fetch().length toEqual 0
 
 	afterEach(function(){
 		Pointer.remove(id);
 	})
 
+});
+
+describe ("The Pointer Template's helpers", function(){
+
+  var id;
+  var elementId;
+
+	beforeEach(function() {
+    id = new Mongo.ObjectID()
+		Pointer.add(id)
+		Pointer.update(id,{x: 100, y:100})
+	});
+
+	beforeEach(function(done){
+    Router.go('/board')
+    Tracker.afterFlush(done)
+  }) 
+
+  beforeEach(waitForRouter)
+
+	it('should react to the changing value and move position', function(){
+		expect($('nav').css('left')).toEqual('100px')
+	})
+
+  // it('knows the element it is positioned over', function(){
+  // 	expect(elementId).toEqual('123')
+  // })
+
+	afterEach(function(){
+		Pointer.remove(id);
+	})
 
 });

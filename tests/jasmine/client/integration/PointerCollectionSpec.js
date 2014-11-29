@@ -13,19 +13,19 @@ describe ('Pointer', function(){
 	});
 
 	it ('has a x coordinate', function() {
-		expect(pointer.x).toEqual(10)
+		expect(pointer.x).toEqual(100)
 	});
 
 	it ('has a y coordinate', function() {
-		expect(pointer.y).toEqual(20)
+		expect(pointer.y).toEqual(200)
 	});
 
 	it ('will return the x coordinate', function() {
-		expect(Pointer.returnx()).toEqual(10)
+		expect(Pointer.returnx()).toEqual(100)
 	});
 
     it ('will return the y coordinate', function() {
-		expect(Pointer.returny()).toEqual(20)
+		expect(Pointer.returny()).toEqual(200)
 	});
 
 	afterEach(function(){
