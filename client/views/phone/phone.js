@@ -1,0 +1,3 @@
+Template.pointercontrol.rendered = function(){
+  
+}

@@ -8,9 +8,9 @@ describe ("The Pointer Template's helpers", function(){
 	});
 
 	beforeEach(function(done){
-    	Router.go('/board')
-    	Tracker.afterFlush(done)
-  	}) 
+    Router.go('/board')
+    Tracker.afterFlush(done)
+  }) 
 
   beforeEach(waitForRouter)
 
