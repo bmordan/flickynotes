@@ -15,9 +15,7 @@
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      {{> indicators}}
     </ol>
 
     <!-- Wrapper for slides -->
@@ -37,4 +35,15 @@
       <h2 data-id="{{_id}}">{{name}}</h2>
     </div>
   {{/each}}
+</template>
+
+<template name="indicators">
+  {{#each zonesCollection}}
+    <li data-target="#carousel-example-generic" data-slide-to="{{order}}" class="{{selected}}"></li>
+  {{/each}}
+
+
+<!--   <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+  <li data-target="#carousel-example-generic" data-slide-to="2"></li> -->
 </template>

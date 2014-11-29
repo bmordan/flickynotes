@@ -1,7 +1,10 @@
 describe('Zone', function() {
+var board;
+var zoneId;
 
 	beforeEach(function(){
-		Zones.add("ToDo", 1, "2");
+		board = _.first(Boards.getDemo());
+		zoneId = Zones.add("ToDo", 1, board._id);
 		arr = Zones.find({}).fetch();
 		hash = arr[arr.length -1];
 	});
@@ -15,12 +18,16 @@ describe('Zone', function() {
 	});
 
 	it('should have a board ID', function() {
-		expect(hash.boardId).toEqual("2");
+
+		expect(hash.boardId).toEqual(board._id);
 	});
 
 	it('should return all Zones for a board', function(){
-		board = _.first(Boards.getDemo());
 		collection = Zones.allZonesOfABoard(board._id);
 		expect(collection.length).toEqual(3);
+	});
+
+	afterEach(function(){
+		Zones.remove(zoneId);
 	});
 });

@@ -12,7 +12,7 @@ Zones.add = function(name, order, boardId){
 		selected:""
 	})
   
-  return id
+  return id;
 }
 
 Zones.allZonesOfABoard = function(boardId){
