@@ -4,6 +4,9 @@
     {{#each zones}}
       <fieldset id="{{_id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
         <legend>{{name}}</legend>
+        {{#each getPostits _id._str}}
+          <article>{{content}}</article>
+        {{/each}}
       </fieldset>
     {{/each}}
   </main>

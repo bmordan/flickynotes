@@ -1,8 +1,11 @@
 Postits = new Mongo.Collection("Postits");
 
-Postits.add = function(content, zone_id){
+Postits.add = function(content, zoneId){
 	Postits.insert({
 		content: content,
-		zone: zone_id
+		zoneId: zoneId
 	});
+}
+Postits.forZone = function(zoneId){
+  return Postits.find({},{zoneId: zondId}).fetch()
 }

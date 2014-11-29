@@ -33,3 +33,7 @@ Template.pointer.helpers({
     }
   }
 })
+
+UI.registerHelper('getPostits', function(zoneId){
+  return Postits.find({zoneId: zoneId}).fetch()
+})

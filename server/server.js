@@ -25,7 +25,6 @@ Meteor.methods({
   },
   constructDemoBoard: function(){
     if(Boards.getDemo().length === 0){
-
       var id = new Mongo.ObjectID()
       var defaultZones = ["Todo","Doing","Done"]
 
@@ -35,6 +34,11 @@ Meteor.methods({
         Boards.addZone(id, newZone)
       })
     }
+  },
+  addDemoPostit: function(){
+    var board = _.first(Boards.getDemo())
+    var zoneId = board.zones[0]
+    Postits.add("Hi. This is an example of the kind of postit you can add to the screen", zoneId)
   },
   resetDemoBoard: function(){
     Boards.remove({title: "Demo"})
