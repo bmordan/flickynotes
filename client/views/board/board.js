@@ -8,7 +8,13 @@ Template.board.helpers({
     if(board !== undefined){
       _.each(board.zones, function(zoneId){
         var zone = _.first(Zones.find(zoneId).fetch())
-        zones.push(zone)
+        var allPostits = Postits.find({}).fetch();
+        var onlyForThisZonePostits= _.findWhere(allPostits, {zone:zoneId}); 
+
+        console.log('just for this zone: ' + onlyForThisZonePostits);
+
+        zonePostits = new Object({zone: zone, postits: allPostits});
+        zones.push(zonePostits);
       })
     }
     return zones
