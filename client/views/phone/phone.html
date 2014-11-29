@@ -32,7 +32,7 @@
 <template name="zones">
 	{{#each zonesCollection}}
 		<div class="item {{selected}}" >
-      <h2 data-id="{{_id}}">{{name}}</h2>
+      <h2 data-id="{{_id._str}}">{{name}}</h2>
     </div>
   {{/each}}
 </template>
