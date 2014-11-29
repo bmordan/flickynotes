@@ -10,7 +10,7 @@ body{
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
-  background-color: rgba(222,222,222,0.7);
+  background-color: rgba(222,222,222,0.1);
   color: rgba(0,0,0,0.2);
 }
 header, legend{font-family: 'Roboto', sans-serif;}
@@ -29,8 +29,8 @@ header, legend{font-family: 'Roboto', sans-serif;}
 
 @media only screen and (min-width: 45em){  /* DESKTOPS */
   main{
-    width:97%;
-    margin: auto;
+    width:98%;
+    margin: 0% auto 0% 2.2%;
   }
   header{
     width: 100%;
@@ -51,12 +51,13 @@ header, legend{font-family: 'Roboto', sans-serif;}
   fieldset{
     float: left;
     margin: 0% 0.4% 0% 0%;
-    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.23);
-    -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.23);
-    box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.23);
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.12);
+    -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.12);
+    box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.12);
   }
 
   nav {
+    display: none;
     position: absolute;
     width: 2em;
     height: 2em;
