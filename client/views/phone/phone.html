@@ -1,0 +1,49 @@
+<template name="phone">
+  {{> document_ready}}
+  <header><h1>Flicky Notes</h1></header>
+
+  <section id="submit-postit">
+    <article id="postit-object">
+      <form class="new-postit">
+          <textarea id='text-postit' name="text-postit" placeholder="Type to add a new Postit.."></textarea>
+        </form>
+      <article id="postit-object-shadow">
+      </article>
+    </article>
+  </section>
+
+  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      {{> indicators}}
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      {{> zones}}
+    </div>
+  </div>
+  <section>
+    {{>pointercontrol}}
+  </section>
+</template>
+
+<template name="document_ready"></template>
+
+<template name="zones">
+  {{#each zonesCollection}}
+    <div class="item {{selected}}" >
+      <h2 data-id="{{_id._str}}">{{name}}</h2>
+    </div>
+  {{/each}}
+</template>
+
+<template name="indicators">
+  {{#each zonesCollection}}
+    <li data-target="#carousel-example-generic" data-slide-to="{{order}}" class="{{selected}}"></li>
+  {{/each}}
+</template>
+
+<template name="pointercontrol">
+  <kbd id="pointerElement">Move</kbd>
+</template>

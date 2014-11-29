@@ -8,8 +8,13 @@ Zones.add = function(name, order, boardId){
     _id: id,
 		name: name,
 		order: order, 
-		boardId: boardId
+		boardId: boardId,
+		selected:""
 	})
   
-  return id
+  return id;
 }
+
+Zones.allZonesOfABoard = function(boardId){
+	return Zones.find({boardId: boardId}).fetch();
+};
