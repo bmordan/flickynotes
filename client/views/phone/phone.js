@@ -8,17 +8,34 @@ Template.document_ready.rendered = function(){
     })
     $('.carousel').carousel('pause')
 
-    var car = document.getElementById('carousel-example-generic');
-    var hammerswipe = new Hammer(car); 
-    hammerswipe.get('swipe').set({direction: Hammer.DIRECTION_ALL})
+    var textPostit = document.getElementById('submit-postit');
+    var hammerPostit = new Hammer(textPostit);
+    hammerPostit.get('swipe').set({direction: Hammer.DIRECTION_ALL});
 
-    hammerswipe.on('swipeleft', function(){
+    hammerPostit.on("swipeup", function(event) {
+      var text = $('#text-postit');
+      if(text.val()){
+          var zoneId = $('.item.active h2').data();
+          Postits.add(text.val(), zoneId);
+          text.val("");
+      }
+      else {
+        alert("You need to insert a text to post to the board");
+      }
+    });
+
+    var carouselSwipe = document.getElementById('carousel-example-generic');
+    var hammerSwipe = new Hammer(carouselSwipe); 
+    hammerSwipe.get('swipe').set({direction: Hammer.DIRECTION_ALL})
+
+    hammerSwipe.on('swipeleft', function(){
         $('.carousel').carousel('next'); 
     });
 
-    hammerswipe.on('swiperight', function(){
+    hammerSwipe.on('swiperight', function(){
         $('.carousel').carousel('prev'); 
     });
+
 }
 
 Template.zones.helpers({
@@ -26,14 +43,12 @@ Template.zones.helpers({
         board = _.first(Boards.getDemo());
         arrZones = Zones.allZonesOfABoard(board._id);
         _.each(arrZones, function(item){
-            console.log(item._id._str);
             if(item.order === 0){
                  Zones.update(item._id, {$set: {selected: "active"}});
             }
         });
         arrZones = Zones.allZonesOfABoard(board._id);
         _.sortBy(arrZones, 'order');
-        console.log(_.sortBy(arrZones, 'order'));
         return _.sortBy(arrZones, 'order');
     }
 });
