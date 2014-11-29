@@ -10,6 +10,7 @@ Boards.add = function(title){
 Boards.getDemo = function(){
   return Boards.find({title: "Demo"}).fetch()
 }
+
 Boards.addZone = function(id, newZoneTitle){
   var zonesArray = _getZonesArray(id)
   var newZone = Zones.add(newZoneTitle, zonesArray.length, id)
