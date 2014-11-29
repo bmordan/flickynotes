@@ -67,6 +67,8 @@ header, legend{font-family: 'Roboto', sans-serif;}
 
   nav {
     position: absolute;
+    left:-100px;
+    top:-100px;
     width: 2em;
     height: 2em;
     background-color: hotpink;

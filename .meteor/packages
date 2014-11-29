@@ -9,4 +9,5 @@ velocity:html-reporter
 iron:router
 insecure
 autopublish
+chriswessels:hammer
 

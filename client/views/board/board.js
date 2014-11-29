@@ -24,5 +24,12 @@ Template.pointer.helpers({
   },
   y: function() {
     return Pointer.returny()
+  },
+  display: function(){
+    if(Pointer.find({}).fetch().length === 0){
+      return "none"
+    }else{
+      return "inline"
+    }
   }
 })

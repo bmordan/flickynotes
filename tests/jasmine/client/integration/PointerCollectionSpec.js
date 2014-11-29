@@ -1,12 +1,12 @@
 describe ('Pointer', function(){
-    var id;
+  var id;
 
-    beforeEach(function() {
-    	id = new Mongo.ObjectID()
-		Pointer.add(id)
-		pointers =  Pointer.find(id).fetch();
-		pointer = _.last(pointers)
-    });
+  beforeEach(function() {
+    id = new Mongo.ObjectID()
+	  Pointer.add(id)
+	  pointers =  Pointer.find(id).fetch();
+	  pointer = _.last(pointers)
+  });
 
 	it('has a id', function() {
 		expect(pointer._id).toEqual(id)
