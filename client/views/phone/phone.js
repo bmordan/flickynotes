@@ -6,25 +6,34 @@ Template.pointercontrol.rendered = function(){
   var pointerElement = this.find('kbd')
   var pointerControl = new Hammer(pointerElement)
 
-  pointerControl.on('tap', function(e){
-    Session.set('taps', Session.get('taps')+1)
+  pointerControl.on('tap click', function(e){
+    Session.set('taps', Session.get('taps')+1)   
   })
 }
 
 Tracker.autorun(function(){
+
   if(Session.get('taps') === 1){
-    Pointer.insert({_id: Session.get('pointerId'), x: 100, y: 100})
+    Pointer.insert({
+      _id: Session.get('pointerId'),
+      x: 100,
+      y: 200
+    })
     startMovementCapture()
   }
-  if(Session.get('taps') === 3){
+  if(Session.get('taps') === 2){
+    console.log(Session.get('taps'))
     Pointer.remove(Session.get('pointerId'))
     stopMovementCapture()
+    Session.set('taps', 0)
   }
 
 })
 
 function writeCoordinates(m){
-  var x = (m.gamma*15).toPrecision(3) 
+  var windowWidth = $(window).width()/2
+  var remap = m.gamma.toPrecision(3)+windowWidth
+  var x = (remap*15)
   var y = (m.beta*15).toPrecision(3)
   Pointer.update(Session.get('pointerId'),{$set:{x: x, y: y}})
 }
