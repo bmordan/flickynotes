@@ -1,6 +1,6 @@
 <template name="board">
   <header id="{{board._id._str}}">{{board.title}}</header>
-  <button type="button" id="clear">Clear Postits</button>
+  <button type="button" id="clearPostits">Clear Postits</button>
   <main>
     {{#each zones}}
       <fieldset id="{{_id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">

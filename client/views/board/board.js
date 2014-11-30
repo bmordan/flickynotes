@@ -37,7 +37,7 @@ Template.pointer.helpers({
 })
 
 Template.board.events = {
-  "click #clear": function(){
+  "click #clearPostits": function(){
     Meteor.call("removePostits");
   }
 }
