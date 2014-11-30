@@ -28,7 +28,7 @@ Template.pointer.helpers({
     return Pointer.returny()
   },
   display: function(){
-    return Pointer.find({}).fetch()[0].visible
+    return Pointer.returnDisplay()
   }
 })
 

@@ -16,6 +16,9 @@ Pointer.returnx = function() {
 Pointer.returny = function() {
 	return _.first(Pointer.find().fetch()).y
 }
+Pointer.returnDisplay = function(){
+  return _.first(Pointer.find().fetch()).visible
+}
 Pointer.overElement = function(){
   return document.elementFromPoint(this.returnx-2, this.returny-2)
 }

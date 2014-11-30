@@ -1,5 +1,6 @@
 Template.pointercontrol.rendered = function(){
   
+  Meteor.call('clearPointer')
   Session.set('pointerId', new Mongo.ObjectID)
 
   var pointerId = function(){ return Session.get('pointerId')}
@@ -10,12 +11,16 @@ Template.pointercontrol.rendered = function(){
     
     switch(managePointerTaps(pointerId)){
       case 0:
+        stopMovementCapture()
+        Meteor.call('clearPointer')
         console.log("update postit | reset")
         break;
       case 1:
+        startMovementCapture()
         console.log("move pointer")
         break;
       case 2:
+        Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}})
         console.log("move postit")
         break;
     }
@@ -35,7 +40,7 @@ function managePointerTaps(pointerId){
 function writeCoordinates(m){
   var x = (m.gamma*15).toPrecision(3)
   var y = (m.beta*15).toPrecision(3)
-  Pointer.update(pointerId,{$set:{x: x, y: y}})
+  Pointer.update(Session.get('pointerId'),{$set:{x: x, y: y}})
 }
 
 function startMovementCapture() {
