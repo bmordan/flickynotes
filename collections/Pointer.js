@@ -6,7 +6,8 @@ Pointer.add = function(id) {
 		x: 100,
 		y: 200,
     taps: 1,
-    visible: "inline" 
+    visible: "inline",
+    element: null
 	})
 }
 

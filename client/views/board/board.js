@@ -29,7 +29,15 @@ Template.pointer.helpers({
   },
   display: function(){
     return Pointer.returnDisplay()
+  },
+  element: function(){
+    return document.elementFromPoint(Pointer.returnx(),Pointer.returny()).id
   }
+})
+
+UI.registerHelper('overElement', function(x,y){
+  console.log(x)
+  console.log(y)
 })
 
 Template.board.events = {

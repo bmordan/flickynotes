@@ -21,10 +21,9 @@ Template.pointercontrol.rendered = function(){
         break;
       case 2:
         Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}})
-        console.log("move postit")
+        console.log("check element in Pointer postit")  
         break;
     }
-  
   })
 }
 
@@ -89,31 +88,31 @@ Template.document_ready.rendered = function(){
 }
 
 Template.zones.helpers({
-    zonesCollection: function(){
-        board = _.first(Boards.getDemo());
-        arrZones = Zones.allZonesOfABoard(board._id);
-        _.each(arrZones, function(item){
-            if(item.order === 0){
-                 Zones.update(item._id, {$set: {selected: "active"}});
-            }
-        });
-        arrZones = Zones.allZonesOfABoard(board._id);
-        _.sortBy(arrZones, 'order');
-        return _.sortBy(arrZones, 'order');
-    }
+  zonesCollection: function(){
+    board = _.first(Boards.getDemo());
+    arrZones = Zones.allZonesOfABoard(board._id);
+    _.each(arrZones, function(item){
+        if(item.order === 0){
+             Zones.update(item._id, {$set: {selected: "active"}});
+        }
+    });
+    arrZones = Zones.allZonesOfABoard(board._id);
+    _.sortBy(arrZones, 'order');
+    return _.sortBy(arrZones, 'order');
+  }
 });
 
 Template.indicators.helpers({
-    zonesCollection: function(){
-        board = _.first(Boards.getDemo());
-        arrZones = Zones.allZonesOfABoard(board._id);
-        _.each(arrZones, function(item){
-            if(item.order === 0){
-                 Zones.update(item._id, {$set: {selected: "active"}});
-            }
-        });
-        arrZones = Zones.allZonesOfABoard(board._id);
-        _.sortBy(arrZones, 'order');
-        return _.sortBy(arrZones, 'order');
-    }
+  zonesCollection: function(){
+    board = _.first(Boards.getDemo());
+    arrZones = Zones.allZonesOfABoard(board._id);
+    _.each(arrZones, function(item){
+        if(item.order === 0){
+             Zones.update(item._id, {$set: {selected: "active"}});
+        }
+    });
+    arrZones = Zones.allZonesOfABoard(board._id);
+    _.sortBy(arrZones, 'order');
+    return _.sortBy(arrZones, 'order');
+  }
 });
