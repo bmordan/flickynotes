@@ -15,11 +15,10 @@ Template.pointercontrol.rendered = function(){
         y: 200,
         taps: 1
       });startMovementCapture()
-    }
-
-    if(Pointer.find().fetch().length === 1 && Pointer.find({}).fetch()[0].taps === 1){
+    }else if(Pointer.find().fetch().length === 1 && Pointer.find({}).fetch()[0].taps === 1){
       Pointer.update({_id: pointerId}, {$set:{taps: 2}})
-      console.log("====inside tap event 2 ====")
+    }else if(Pointer.find().fetch().length === 1 && Pointer.find({}).fetch()[0].taps === 2){
+      Pointer.remove(pointerId)
     }
 
 

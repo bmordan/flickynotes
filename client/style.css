@@ -162,6 +162,7 @@ header, legend{font-family: 'Roboto', sans-serif;}
     box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.12);
   }
   li{
+    position: absolute;
     height: 9em;
     width: 9em;
     background: #ffff88;
@@ -173,9 +174,9 @@ header, legend{font-family: 'Roboto', sans-serif;}
     background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 );
     font-family: 'Patrick Hand', sans-serif;
-    padding: 9% 4% 3% 4%;
+    padding: 3% 4% 3% 4%;
     margin: 1em;
-    color: rgba(0,0,0,0.4);
+    color: rgba(0,0,0,0.6);
     box-shadow: 1px 1px 3px 0px;
   }
   nav {

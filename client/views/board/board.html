@@ -6,7 +6,7 @@
         <legend>{{zone.name}}</legend>
         	<ul>
         		{{#each postits}}
-        			<li id="_id">{{content}}</li>
+        			<li id="{{_id}}">{{content}}</li>
         		{{/each}}
         	</ul>
       </fieldset>
@@ -16,6 +16,6 @@
 </template>
 
 <template name="pointer">
-  <nav style="left: {{x}}px; top: {{y}}px; display:{{display}};" ></nav>
+  <nav style="left: {{x}}px; top: {{y}}px; display:{{display}};">{{taps}}</nav>
 </template>
 
