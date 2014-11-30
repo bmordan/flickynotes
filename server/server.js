@@ -23,6 +23,11 @@ Meteor.methods({
     Pointer.remove({});
     console.log("All collections have been set to zero")
   },
+
+  removePostits: function(){
+    Postits.remove({});
+  },
+
   constructDemoBoard: function(){
     if(Boards.getDemo().length === 0){
 

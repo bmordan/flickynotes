@@ -35,3 +35,9 @@ Template.pointer.helpers({
     }
   }
 })
+
+Template.board.events = {
+  "click #clear": function(){
+    Meteor.call("removePostits");
+  }
+}

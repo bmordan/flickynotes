@@ -24,4 +24,9 @@ describe('Postit',function() {
 		expect(Postits.getByZone(zoneId2).length).toEqual(1);
 	});
 
+	it('should be able to reset the collection', function(){
+		Postits.removeAll();
+		expect(Postits.find().length()).toEqual(0)
+	});
+
 });
