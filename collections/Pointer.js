@@ -17,6 +17,9 @@ Pointer.returnx = function() {
 Pointer.returny = function() {
 	return _.first(Pointer.find().fetch()).y
 }
+Pointer.returnTaps = function(){
+  return _.first(Pointer.find().fetch()).taps
+}
 Pointer.returnDisplay = function(){
   return _.first(Pointer.find().fetch()).visible
 }

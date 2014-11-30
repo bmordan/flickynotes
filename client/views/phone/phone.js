@@ -20,8 +20,8 @@ Template.pointercontrol.rendered = function(){
         console.log("move pointer")
         break;
       case 2:
-        Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}})
-        console.log("check element in Pointer postit")  
+        Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}}) 
+        console.log("move postit")  
         break;
     }
   })

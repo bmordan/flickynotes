@@ -31,13 +31,10 @@ Template.pointer.helpers({
     return Pointer.returnDisplay()
   },
   element: function(){
-    return document.elementFromPoint(Pointer.returnx(),Pointer.returny()).id
+    var element = document.elementFromPoint(Pointer.returnx(),Pointer.returny()).id
+    Session.set('element', element)
+    return element
   }
-})
-
-UI.registerHelper('overElement', function(x,y){
-  console.log(x)
-  console.log(y)
 })
 
 Template.board.events = {
