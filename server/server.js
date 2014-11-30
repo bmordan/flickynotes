@@ -11,7 +11,7 @@
 // });
 
 Meteor.startup(function () {
-  Meteor.call('resetDemoBoard')
+  //Meteor.call('resetDemoBoard')
   Meteor.call('constructDemoBoard')
 });
 
@@ -37,6 +37,7 @@ Meteor.methods({
     }
   },
   resetDemoBoard: function(){
-    Boards.remove({title: "Demo"})
+    board = Boards.getDemo();
+    Boards.remove({title: "Demo"});
   }
 })

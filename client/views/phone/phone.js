@@ -1,7 +1,6 @@
 
 
 Template.document_ready.rendered = function(){
-    
 
     $('.carousel').carousel({
       interval: false
@@ -15,15 +14,8 @@ Template.document_ready.rendered = function(){
     hammerPostit.on("swipeup", function(event) {
       var text = $('#text-postit');
       if(text.val()){
-          var zoneId = new Mongo.ObjectID($('.item.active h2').data().id);
-          console.log('**********ZONE ID**********    ' + zoneId);
-
-
-
-
-          zone = Zones.find(zoneId).fetch();
-          console.log('**********ZONE **********    ' + zone._id);
-          Postits.add(text.val(), zone._id);
+          var zoneId = $('.item.active h2').data().id;
+          Postits.add(text.val(), zoneId);
           text.val("");
       }
       else {
