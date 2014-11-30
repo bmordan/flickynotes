@@ -5,7 +5,7 @@ Pointer.add = function(id) {
 		_id: id,
 		x: 100,
 		y: 200,
-    taps: 0,
+    taps: 1,
     visible: "inline" 
 	})
 }
@@ -18,5 +18,12 @@ Pointer.returny = function() {
 }
 Pointer.overElement = function(){
   return document.elementFromPoint(this.returnx-2, this.returny-2)
+}
+Pointer.tap = function(id){
+  var taps = (Pointer.find({},{_id: id}).fetch()[0].taps)+=1
+  if(taps > 2)
+    taps = 0
+  Pointer.update(id, {$set: {taps: taps}})
+  return taps
 }
 

@@ -7,7 +7,11 @@ Template.pointercontrol.rendered = function(){
   var pointerControl = new Hammer(pointerElement)
 
   pointerControl.on('tap click', function(e){
-    Pointer.add(pointerId())
+    if(Pointer.find().fetch().length === 0){
+      Pointer.add(pointerId())
+    }else{
+      console.log(Pointer.tap(pointerId()))
+    }
   })
 }
 
