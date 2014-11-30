@@ -19,7 +19,7 @@ Pointer.returny = function() {
 Pointer.overElement = function(){
   return document.elementFromPoint(this.returnx-2, this.returny-2)
 }
-Pointer.tap = function(id){
+Pointer.incrementTap = function(id){
   var taps = (Pointer.find({},{_id: id}).fetch()[0].taps)+=1
   if(taps > 2)
     taps = 0
