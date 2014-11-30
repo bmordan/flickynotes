@@ -1,34 +1,16 @@
 Template.pointercontrol.rendered = function(){
   
-  Session.set('taps', 0)
   Session.set('pointerId', new Mongo.ObjectID)
 
+  var pointerId = function(){ return Session.get('pointerId')}
   var pointerElement = this.find('kbd')
   var pointerControl = new Hammer(pointerElement)
 
   pointerControl.on('tap click', function(e){
-    Session.set('taps', Session.get('taps')+1)   
+    Pointer.add(pointerId())
   })
 }
 
-Tracker.autorun(function(){
-
-  if(Session.get('taps') === 1){
-    Pointer.insert({
-      _id: Session.get('pointerId'),
-      x: 100,
-      y: 200
-    })
-    startMovementCapture()
-  }
-  if(Session.get('taps') === 2){
-    console.log(Session.get('taps'))
-    Pointer.remove(Session.get('pointerId'))
-    stopMovementCapture()
-    Session.set('taps', 0)
-  }
-
-})
 
 function writeCoordinates(m){
   var windowWidth = $(window).width()/2

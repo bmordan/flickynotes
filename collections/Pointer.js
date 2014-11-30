@@ -4,7 +4,9 @@ Pointer.add = function(id) {
 	Pointer.insert({
 		_id: id,
 		x: 100,
-		y: 200 
+		y: 200,
+    taps: 0,
+    visible: "inline" 
 	})
 }
 

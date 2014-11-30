@@ -28,11 +28,7 @@ Template.pointer.helpers({
     return Pointer.returny()
   },
   display: function(){
-    if(Pointer.find({}).fetch().length === 0){
-      return "none"
-    }else{
-      return "inline"
-    }
+    return Pointer.find({}).fetch()[0].visible
   }
 })
 
