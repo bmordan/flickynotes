@@ -117,12 +117,13 @@ header, legend{font-family: 'Roboto', sans-serif;}
   kbd{
     display: block;
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
     width:100%;
     line-height:1.5em;
     background-color: hotpink;
     color: rgb(255,255,255);
-    font-family: 'Rubik One', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 1em;
   }
 
 

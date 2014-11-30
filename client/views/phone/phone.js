@@ -1,39 +1,60 @@
 Template.pointercontrol.rendered = function(){
   
-  Session.set('taps', 0)
   Session.set('pointerId', new Mongo.ObjectID)
-
+  var pointerId = Session.get('pointerId')
   var pointerElement = this.find('kbd')
   var pointerControl = new Hammer(pointerElement)
 
   pointerControl.on('tap click', function(e){
-    Session.set('taps', Session.get('taps')+1)   
+    var pointer = _.first(Pointer.find({_id: pointerId}).fetch())
+
+    if(pointer === undefined){
+      Pointer.insert({
+        _id: Session.get('pointerId'),
+        x: 100,
+        y: 200,
+        taps: 1
+      });startMovementCapture()
+    }
+
+    if(Pointer.find().fetch().length === 1 && Pointer.find({}).fetch()[0].taps === 1){
+      Pointer.update({_id: pointerId}, {$set:{taps: 2}})
+      console.log("====inside tap event 2 ====")
+    }
+
+
+
+
   })
 }
 
 Tracker.autorun(function(){
 
-  if(Session.get('taps') === 1){
-    Pointer.insert({
-      _id: Session.get('pointerId'),
-      x: 100,
-      y: 200
-    })
-    startMovementCapture()
-  }
-  if(Session.get('taps') === 2){
-    console.log(Session.get('taps'))
-    Pointer.remove(Session.get('pointerId'))
-    stopMovementCapture()
-    Session.set('taps', 0)
-  }
+  // if(Session.get('taps') === 1){
+  //   Pointer.insert({
+  //     _id: Session.get('pointerId'),
+  //     x: 100,
+  //     y: 200,
+   //   taps: 1
+  //   })
+  //   startMovementCapture()
+  // }
+  // if(Session.get('taps') === 2){
+  //   console.log("What am I over on the /board?")
+  // }
+  // if(Session.get('taps') === 3){
+  //   console.log(Pointer.overElement())
+  //   Pointer.remove(Session.get('pointerId'))
+  //   stopMovementCapture()
+  //   Session.set('taps', 0)
+  // }
+
+  // console.log(Session.get('taps'))
 
 })
 
 function writeCoordinates(m){
-  var windowWidth = $(window).width()/2
-  var remap = m.gamma.toPrecision(3)+windowWidth
-  var x = (remap*15)
+  var x = (m.gamma*15).toPrecision(3)
   var y = (m.beta*15).toPrecision(3)
   Pointer.update(Session.get('pointerId'),{$set:{x: x, y: y}})
 }
