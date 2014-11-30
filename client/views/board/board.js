@@ -33,5 +33,14 @@ Template.pointer.helpers({
     }else{
       return "inline"
     }
+  },
+  counterTaps: function(){
+    pointerStream.on('taps', function(taps) {
+      alert("i am receiving")
+        return counterTaps.set(taps);
+      });
+    return counterTaps.get();
   }
 })
+
+

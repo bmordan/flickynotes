@@ -1,15 +1,58 @@
 Template.pointercontrol.rendered = function(){
-  
-  Session.set('taps', 0)
-  Session.set('pointerId', new Mongo.ObjectID)
 
   var pointerElement = this.find('kbd')
   var pointerControl = new Hammer(pointerElement)
 
-  pointerControl.on('tap click', function(e){
-    Session.set('taps', Session.get('taps')+1)   
+  pointerControl.on('tap click', function(){
+    counterTaps.set(1);  
+    if(counterTaps.get() === 1){
+      sendPointer();
+      alert('hello');
+      Pointer.insert({
+        _id: Session.get('pointerId'),
+        x: 100,
+        y: 200
+      })
+      startMovementCapture()
+    }
+    if(counterTaps.get() === 3){
+      alert("three clicks")
+      sendPointer();
+      alert(counterTaps.counter)
+      counterTaps.set(0);
+       sendPointer();
+      alert(counterTaps.counter)
+    }
+    // if(counterTaps.get() === 4){
+    //   counterTaps.set(0);
+    //   sendPointer();
+    // }
   })
 }
+
+sendPointer = function() {
+  alert("i am emittiing")
+    pointerStream.emit('taps', counterTaps.counter);
+}
+
+// counterTaps ={
+//   counter: 0,
+//   dep: new Deps.Dependency(),
+//   get: function(){
+//     this.dep.depend();
+//     return this.counter
+//   },
+//   set:function(newValue){
+//     if(newValue === 0){
+//       this.counter = newValue;
+//     }
+//     else{
+//       this.counter += newValue;
+//     }
+//     this.dep.changed();
+//     return this.counter; 
+//   }
+// }
 
 Tracker.autorun(function(){
 
@@ -21,7 +64,7 @@ Tracker.autorun(function(){
     })
     startMovementCapture()
   }
-  if(Session.get('taps') === 2){
+  if(Session.get('taps') === 3){
     console.log(Session.get('taps'))
     Pointer.remove(Session.get('pointerId'))
     stopMovementCapture()
