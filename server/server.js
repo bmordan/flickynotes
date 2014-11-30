@@ -11,7 +11,7 @@
 // });
 
 Meteor.startup(function () {
-  Meteor.call('resetDemoBoard')
+  //Meteor.call('resetDemoBoard')
   Meteor.call('constructDemoBoard')
 });
 
@@ -23,6 +23,11 @@ Meteor.methods({
     Pointer.remove({});
     console.log("All collections have been set to zero")
   },
+
+  removePostits: function(){
+    Postits.remove({});
+  },
+
   constructDemoBoard: function(){
     if(Boards.getDemo().length === 0){
 
@@ -38,5 +43,11 @@ Meteor.methods({
   },
   resetDemoBoard: function(){
     Boards.remove({title: "Demo"})
+  },
+  clearPointer: function(){
+    Pointer.remove({})
+    return true
+    board = Boards.getDemo();
+    Boards.remove({title: "Demo"});
   }
 })
