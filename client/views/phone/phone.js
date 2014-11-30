@@ -47,7 +47,6 @@ function stopMovementCapture() {
 }
 
 Template.document_ready.rendered = function(){
-    
 
     $('.carousel').carousel({
       interval: false
@@ -61,7 +60,7 @@ Template.document_ready.rendered = function(){
     hammerPostit.on("swipeup", function(event) {
       var text = $('#text-postit');
       if(text.val()){
-          var zoneId = $('.item.active h2').data();
+          var zoneId = $('.item.active h2').data().id;
           Postits.add(text.val(), zoneId);
           text.val("");
       }

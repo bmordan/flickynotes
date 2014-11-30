@@ -8,7 +8,9 @@ Template.board.helpers({
     if(board !== undefined){
       _.each(board.zones, function(zoneId){
         var zone = _.first(Zones.find(zoneId).fetch())
-        zones.push(zone)
+        var PostitsForZone = Postits.getByZone(zoneId);
+        zonePostits = new Object({zone: zone, postits: PostitsForZone});
+        zones.push(zonePostits);
       })
     }
     return zones
