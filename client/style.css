@@ -13,7 +13,7 @@ body{
   background-color: rgba(222,222,222,0.1);
   color: rgba(0,0,0,0.2);
 }
-header, legend{font-family: 'Roboto', sans-serif;}
+header, article.header{font-family: 'Roboto', sans-serif;}
 
 /*========================
       Media Queries - Phone
@@ -142,24 +142,26 @@ header, legend{font-family: 'Roboto', sans-serif;}
     padding: 0.2% 0% 0% 1%;
     font-size: 213%;
   }
-  legend, fieldset{
+  article{
+    width: 100%;
     background-color: rgb(255,255,255);
     border: solid 1px rgba(222,222,222,1);
-  }
-  legend{
-    width:73%;
-    text-align: center;
-    padding: 1%;
-    margin: 0% 0% 0% 0%;
-    font-size: 100%;
-  }
-  fieldset{
     overflow:scroll;
     float: left;
     margin: 0% 0.4% 0% 0%;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.12);
     -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.12);
     box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.12);
+  }
+  article.main{
+    border-top: none;
+  }
+  article.header{
+    height: 40px;
+    text-align: center;
+    padding: 3%;
+    margin: 0% 0% 0% 0%;
+    font-size: 100%;
   }
   li{
   display: inline-block;

@@ -3,14 +3,16 @@
   <button type="button" id="clearPostits">Clear Postits</button>
   <main>
     {{#each zones}}
-      <fieldset id="{{_id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
-        <legend>{{zone.name}}</legend>
-        	<ul>
-        		{{#each postits}}
-        			<li>{{content}}</li>
-        		{{/each}}
-        	</ul>
-      </fieldset>
+      <section id="{{_id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
+        <article class="header" id="{{_id._str}}">{{zone.name}}</article>
+        <article class="main" id="{{_id._str}}" style="height:{{zoneHeight}}px;">
+          	<ul>
+          		{{#each postits}}
+          			<li>{{content}}</li>
+          		{{/each}}
+          	</ul>
+        </article>
+      </section>
     {{/each}}
   </main>
   <footer>{{>pointer}}</footer>
