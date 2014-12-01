@@ -5,11 +5,13 @@
     {{#each zones}}
       <fieldset id="{{_id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
         <legend>{{zone.name}}</legend>
-        	<ul>
-        		{{#each postits}}
-        			<li>{{content}}</li>
-        		{{/each}}
-        	</ul>
+          <aside style="height:{{asideHeight}}px;">
+            <ul>
+              {{#each postits}}
+                <li>{{content}}</li>
+              {{/each}}
+            </ul>
+          </aside>
       </fieldset>
     {{/each}}
   </main>
@@ -19,4 +21,3 @@
 <template name="pointer">
   <nav style="left: {{x}}px; top: {{y}}px; display:{{display}};"></nav>
 </template>
-
