@@ -1,39 +1,44 @@
 Template.pointercontrol.rendered = function(){
   
-  Session.set('taps', 0)
+  Meteor.call('clearPointer')
   Session.set('pointerId', new Mongo.ObjectID)
 
+  var pointerId = function(){ return Session.get('pointerId')}
   var pointerElement = this.find('kbd')
   var pointerControl = new Hammer(pointerElement)
 
   pointerControl.on('tap click', function(e){
-    Session.set('taps', Session.get('taps')+1)   
+    
+    switch(managePointerTaps(pointerId)){
+      case 0:
+        stopMovementCapture()
+        pointerStream.emit('resetPostit')
+        console.log("update postit | reset")
+        break;
+      case 1:
+        startMovementCapture()
+        console.log("move pointer")
+        break;
+      case 2:
+        Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}})
+        pointerStream.emit('movePostit') 
+        console.log("move postit")  
+        break;
+    }
   })
 }
 
-Tracker.autorun(function(){
-
-  if(Session.get('taps') === 1){
-    Pointer.insert({
-      _id: Session.get('pointerId'),
-      x: 100,
-      y: 200
-    })
-    startMovementCapture()
+function managePointerTaps(pointerId){
+  if(Pointer.find().fetch().length === 0){
+    Pointer.add(pointerId())
+    return 1
+  }else{
+    return Pointer.incrementTap(pointerId())
   }
-  if(Session.get('taps') === 2){
-    console.log(Session.get('taps'))
-    Pointer.remove(Session.get('pointerId'))
-    stopMovementCapture()
-    Session.set('taps', 0)
-  }
-
-})
+}
 
 function writeCoordinates(m){
-  var windowWidth = $(window).width()/2
-  var remap = m.gamma.toPrecision(3)+windowWidth
-  var x = (remap*15)
+  var x = (m.gamma*15).toPrecision(3)
   var y = (m.beta*15).toPrecision(3)
   Pointer.update(Session.get('pointerId'),{$set:{x: x, y: y}})
 }
@@ -89,32 +94,32 @@ Template.document_ready.rendered = function(){
 }
 
 Template.zones.helpers({
-    zonesCollection: function(){
-        board = _.first(Boards.getDemo());
-        arrZones = Zones.allZonesOfABoard(board._id);
-        _.each(arrZones, function(item){
-            if(item.order === 0){
-                 Zones.update(item._id, {$set: {selected: "active"}});
-            }
-        });
-        arrZones = Zones.allZonesOfABoard(board._id);
-        _.sortBy(arrZones, 'order');
-        return _.sortBy(arrZones, 'order');
-    }
+  zonesCollection: function(){
+    board = _.first(Boards.getDemo());
+    arrZones = Zones.allZonesOfABoard(board._id);
+    _.each(arrZones, function(item){
+        if(item.order === 0){
+             Zones.update(item._id, {$set: {selected: "active"}});
+        }
+    });
+    arrZones = Zones.allZonesOfABoard(board._id);
+    _.sortBy(arrZones, 'order');
+    return _.sortBy(arrZones, 'order');
+  }
 });
 
 Template.indicators.helpers({
-    zonesCollection: function(){
-        board = _.first(Boards.getDemo());
-        arrZones = Zones.allZonesOfABoard(board._id);
-        _.each(arrZones, function(item){
-            if(item.order === 0){
-                 Zones.update(item._id, {$set: {selected: "active"}});
-            }
-        });
-        arrZones = Zones.allZonesOfABoard(board._id);
-        _.sortBy(arrZones, 'order');
-        return _.sortBy(arrZones, 'order');
-    }
+  zonesCollection: function(){
+    board = _.first(Boards.getDemo());
+    arrZones = Zones.allZonesOfABoard(board._id);
+    _.each(arrZones, function(item){
+        if(item.order === 0){
+             Zones.update(item._id, {$set: {selected: "active"}});
+        }
+    });
+    arrZones = Zones.allZonesOfABoard(board._id);
+    _.sortBy(arrZones, 'order');
+    return _.sortBy(arrZones, 'order');
+  }
 });
 
