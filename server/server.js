@@ -46,8 +46,5 @@ Meteor.methods({
   },
   clearPointer: function(){
     Pointer.remove({})
-    return true
-    board = Boards.getDemo();
-    Boards.remove({title: "Demo"});
   }
 })

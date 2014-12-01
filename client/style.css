@@ -165,24 +165,15 @@ header, legend{font-family: 'Roboto', sans-serif;}
     box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.12);
   }
   li{
-  display: inline-block;
-  vertical-align: top; 
-  height: 9em;
-  width: 9em;
-  background: #ffff88;
-  background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(81%,#ffff88), color-stop(82%,#ffff88), color-stop(82%,#ffff88), color-stop(100%,#ffffc6));
-  background: -webkit-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
-  background: -o-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
-  background: -ms-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
-  background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 );
-  font-family: 'Patrick Hand', sans-serif;
-  padding: 9% 4% 3% 4%;
-  margin: 1em;
-  color: rgba(0,0,0,0.4);
-  box-shadow: 1px 1px 3px 0px;
-}
+    width:9em;
+    height:9em;
+    background-color: rgb(237,242,128);
+    box-shadow: 1px 2px 3px -1px;
+    margin: 1em;
+    padding: 1%;
+    color: rgba(0,0,0,0.7);
+    font-family: 'Patrick Hand';
+  }
 
   nav {
     position: absolute;
