@@ -58,11 +58,15 @@ Template.document_ready.rendered = function(){
     hammerPostit.get('swipe').set({direction: Hammer.DIRECTION_ALL});
 
     hammerPostit.on("swipeup", function(event) {
+      var audio = new Howl({
+        urls: ['sound.ogg', 'sound.mp3']
+      })
       var text = $('#text-postit');
       if(text.val()){
-          var zoneId = $('.item.active h2').data().id;
-          Postits.add(text.val(), zoneId);
-          text.val("");
+        audio.play();
+        var zoneId = $('.item.active h2').data().id;
+        Postits.add(text.val(), zoneId);
+        text.val("");
       }
       else {
         alert("You need to insert a text to post to the board");
@@ -112,3 +116,4 @@ Template.indicators.helpers({
         return _.sortBy(arrZones, 'order');
     }
 });
+
