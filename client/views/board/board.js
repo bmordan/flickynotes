@@ -40,7 +40,25 @@ Template.pointer.helpers({
         return counterTaps.set(taps);
       });
     return counterTaps.get();
+  },
+  createPoointer:function(){
+    pointerStream.on('createPointer', function(){
+      alert('Received Create Pointer');
+    });
+  },
+
+  movePointer:function(){
+    pointerStream.on('movePointer', function(){
+      alert("Received Move Pointer");
+    });
+  },
+
+  deletePointer:function(){
+    pointerStream.on('deletePointer', function(){
+      alert('Received Delete Pointer');
+    });
   }
+
 })
 
 

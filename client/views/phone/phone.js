@@ -6,8 +6,8 @@ Template.pointercontrol.rendered = function(){
   pointerControl.on('tap click', function(){
     counterTaps.set(1);  
     if(counterTaps.get() === 1){
-      sendPointer();
-      alert('hello');
+      alert('one tap');
+      createPointer();
       Pointer.insert({
         _id: Session.get('pointerId'),
         x: 100,
@@ -15,44 +15,50 @@ Template.pointercontrol.rendered = function(){
       })
       startMovementCapture()
     }
-    if(counterTaps.get() === 3){
-      alert("three clicks")
-      sendPointer();
-      alert(counterTaps.counter)
-      counterTaps.set(0);
-       sendPointer();
-      alert(counterTaps.counter)
+    
+    if(counterTaps.get() === 2){
+      alert('two taps');
+      movePointer();
     }
-    // if(counterTaps.get() === 4){
-    //   counterTaps.set(0);
-    //   sendPointer();
-    // }
+
+    if(counterTaps.get() === 3){
+      alert("three taps");
+      deletePointer();
+      counterTaps.set(0);
+    }
   })
 }
 
-sendPointer = function() {
-  alert("i am emittiing")
-    pointerStream.emit('taps', counterTaps.counter);
+createPointer = function() {
+  pointerStream.emit('createPointer');
 }
 
-// counterTaps ={
-//   counter: 0,
-//   dep: new Deps.Dependency(),
-//   get: function(){
-//     this.dep.depend();
-//     return this.counter
-//   },
-//   set:function(newValue){
-//     if(newValue === 0){
-//       this.counter = newValue;
-//     }
-//     else{
-//       this.counter += newValue;
-//     }
-//     this.dep.changed();
-//     return this.counter; 
-//   }
-// }
+movePointer = function() {
+  pointerStream.emit('movePointer');
+}
+
+deletePointer = function() {
+  pointerStream.emit('deletePointer');
+}
+
+counterTaps ={
+  counter: 0,
+  dep: new Deps.Dependency(),
+  get: function(){
+    this.dep.depend();
+    return this.counter
+  },
+  set:function(newValue){
+    if(newValue === 0){
+      this.counter = newValue;
+    }
+    else{
+      this.counter += newValue;
+    }
+    this.dep.changed();
+    return this.counter; 
+  }
+}
 
 Tracker.autorun(function(){
 
