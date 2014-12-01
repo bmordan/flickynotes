@@ -20,7 +20,8 @@ Template.pointercontrol.rendered = function(){
         console.log("move pointer")
         break;
       case 2:
-        Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}}) 
+        Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}})
+        pointerStream.emit('Tap2') 
         console.log("move postit")  
         break;
     }

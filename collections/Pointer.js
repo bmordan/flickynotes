@@ -1,5 +1,5 @@
 Pointer = new Mongo.Collection("Pointer")
-
+pointerStream = new Meteor.Stream('pointer')
 Pointer.add = function(id) {
 	Pointer.insert({
 		_id: id,

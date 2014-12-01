@@ -32,23 +32,14 @@ Template.pointer.helpers({
     return Pointer.returnDisplay()
   },
   element: function(){
-    var element = document.elementFromPoint(Pointer.returnx(),Pointer.returny()).id
-    var pointerId = Pointer.returnId()
-    Pointer.update(pointerId, {$set: {element: element}})
-    moveElement(Pointer)
-    return element
-  },
-  move: function(){
-    if(Session.get('moveMe') === false && Pointer.returnElement() !== ""){  
-      console.log("running move function in side while loop")
-      var element = Pointer.returnElement()
-      $('#'+element).css('position','absolute')
-      $('#'+element).css('left',Pointer.returnx())
-      $('#'+element).css('top',Pointer.returny())
-    }
-    return
+    pointerStream.on('Tap2', function(){
+      console.log('ok message received')
+    })
   }
 })
+
+
+
 
 function moveElement(Pointer){
   if(Pointer.returnTaps() === 2){
