@@ -3,9 +3,9 @@
   <button type="button" id="clearPostits">Clear Postits</button>
   <main>
     {{#each zones}}
-      <fieldset id="{{_id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
+      <fieldset id="{{zone._id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
         <legend>{{zone.name}}</legend>
-        	<ul>
+        	<ul id="{{zone._id._str}}">
         		{{#each postits}}
         			<li id="{{_id}}">{{content}}</li>
         		{{/each}}

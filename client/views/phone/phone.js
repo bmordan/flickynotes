@@ -12,7 +12,6 @@ Template.pointercontrol.rendered = function(){
     switch(managePointerTaps(pointerId)){
       case 0:
         stopMovementCapture()
-        Meteor.call('clearPointer')
         pointerStream.emit('resetPostit')
         console.log("update postit | reset")
         break;
