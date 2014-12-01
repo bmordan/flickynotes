@@ -17,6 +17,9 @@ Template.board.helpers({
   },
   zoneHeight: function(){
     return $(window).height()-75
+  },
+  asideHeight:function(){
+    return $(window).height()-102
   }
 })
 
