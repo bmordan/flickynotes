@@ -37,6 +37,16 @@ Template.pointer.helpers({
   }
 })
 
+Tracker.autorun(function(){
+  if(Session.get('element') !== undefined || Session.get('element') !== ""){
+    moveThis(Session.get('element'))
+  }
+})
+
+function moveThis(element){
+  console.log(element)
+}
+
 Template.board.events = {
   "click #clearPostits": function(){
     Meteor.call("removePostits");
