@@ -30,24 +30,39 @@ Template.pointer.helpers({
   },
   display: function(){
     return Pointer.returnDisplay()
-  },
-  element: function(){
-    pointerStream.on('Tap2', function(){
-      console.log('ok message received')
-    })
   }
 })
 
+Template.board.rendered = function(){
 
+  var move = false;
 
+  pointerStream.on('movePostit', function(){
+    move = true
+    var x = Pointer.returnx()
+    var y = Pointer.returny()
+    var elementId = document.elementFromPoint(x-2,y-2).id
+    moveRecursive(elementId) 
+  })
 
-function moveElement(Pointer){
-  if(Pointer.returnTaps() === 2){
-    Session.set('moveMe', false)
-  }else{
-    Session.set('moveMe', true)
+  pointerStream.on('resetPostit', function(){
+    move = false
+  })
+
+  function moveRecursive(elementId){
+    console.log(elementId)
+    $('#'+elementId).css('position', 'absolute')
+    $('#'+elementId).css('left',Pointer.returnx()+'px')
+    $('#'+elementId).css('top',Pointer.returny()+'px')
+    if(move)
+      setTimeout(function(){moveRecursive(elementId)},100)
   }
+
+
 }
+
+
+
 
 Template.board.events = {
   "click #clearPostits": function(){

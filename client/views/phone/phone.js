@@ -13,6 +13,7 @@ Template.pointercontrol.rendered = function(){
       case 0:
         stopMovementCapture()
         Meteor.call('clearPointer')
+        pointerStream.emit('resetPostit')
         console.log("update postit | reset")
         break;
       case 1:
@@ -21,7 +22,7 @@ Template.pointercontrol.rendered = function(){
         break;
       case 2:
         Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}})
-        pointerStream.emit('Tap2') 
+        pointerStream.emit('movePostit') 
         console.log("move postit")  
         break;
     }
