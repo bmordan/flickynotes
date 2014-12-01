@@ -70,9 +70,6 @@ Template.board.rendered = function(){
 
 }
 
-
-
-
 Template.board.events = {
   "click #clearPostits": function(){
     Meteor.call("removePostits");
