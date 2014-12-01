@@ -7,10 +7,10 @@
       <fieldset id="{{zone._id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
         <legend>{{zone.name}}</legend>
 
-          <aside style="height:{{asideHeight}}px;">
-            <ul id="{{zone._id._str}}">
+          <aside style="height:{{asideHeight}}px;" id="{{zone._id._str}}">
+            <ul>
               {{#each postits}}
-                <li>{{content}}</li>
+                <li id="{{_id}}">{{content}}</li>
               {{/each}}
             </ul>
           </aside>

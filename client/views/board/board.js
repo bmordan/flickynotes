@@ -57,6 +57,7 @@ Template.board.rendered = function(){
     var zoneId = document.elementFromPoint(Pointer.returnx()-5,Pointer.returny()-5).id
     Postits.update(postitId, {$set: {zoneId: new Mongo.ObjectID(zoneId)}})
     Meteor.call('clearPointer')
+    $('#'+postitId).css('position', 'static')
   })
 
   function moveRecursive(elementId){
