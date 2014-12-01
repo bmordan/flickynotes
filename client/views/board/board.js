@@ -1,5 +1,6 @@
 Template.board.helpers({
   board: function() {
+    Session.set('moveMe', true)
     return _.first(Boards.getDemo())
   },
   zones: function(){
@@ -32,19 +33,29 @@ Template.pointer.helpers({
   },
   element: function(){
     var element = document.elementFromPoint(Pointer.returnx(),Pointer.returny()).id
-    Session.set('element', element)
+    var pointerId = Pointer.returnId()
+    Pointer.update(pointerId, {$set: {element: element}})
+    moveElement(Pointer)
     return element
+  },
+  move: function(){
+    if(Session.get('moveMe') === false && Pointer.returnElement() !== ""){  
+      console.log("running move function in side while loop")
+      var element = Pointer.returnElement()
+      $('#'+element).css('position','absolute')
+      $('#'+element).css('left',Pointer.returnx())
+      $('#'+element).css('top',Pointer.returny())
+    }
+    return
   }
 })
 
-Tracker.autorun(function(){
-  if(Session.get('element') !== undefined || Session.get('element') !== ""){
-    moveThis(Session.get('element'))
+function moveElement(Pointer){
+  if(Pointer.returnTaps() === 2){
+    Session.set('moveMe', false)
+  }else{
+    Session.set('moveMe', true)
   }
-})
-
-function moveThis(element){
-  console.log(element)
 }
 
 Template.board.events = {

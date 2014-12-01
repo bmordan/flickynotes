@@ -10,7 +10,9 @@ Pointer.add = function(id) {
     element: null
 	})
 }
-
+Pointer.returnId = function(){
+  return _.first(Pointer.find().fetch())._id
+}
 Pointer.returnx = function() {
 	return _.first(Pointer.find().fetch()).x
 }
@@ -22,6 +24,9 @@ Pointer.returnTaps = function(){
 }
 Pointer.returnDisplay = function(){
   return _.first(Pointer.find().fetch()).visible
+}
+Pointer.returnElement = function(){
+  return _.first(Pointer.find().fetch()).element
 }
 Pointer.overElement = function(){
   return document.elementFromPoint(this.returnx-2, this.returny-2)
