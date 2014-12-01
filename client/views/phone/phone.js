@@ -59,7 +59,8 @@ Template.document_ready.rendered = function(){
 
     hammerPostit.on("swipeup", function(event) {
       var audio = new Howl({
-        urls: ['sound.ogg', 'sound.mp3']
+        urls: ['sound.ogg', 'sound.mp3'],
+        buffer: true
       })
       var text = $('#text-postit');
       if(text.val()){
