@@ -154,6 +154,7 @@ header, legend{font-family: 'Roboto', sans-serif;}
     font-size: 100%;
   }
   fieldset{
+    overflow:scroll;
     float: left;
     margin: 0% 0.4% 0% 0%;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.12);
