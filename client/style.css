@@ -19,7 +19,10 @@ a{
   text-decoration: none;
   color: rgb(0,0,0);
 }
-
+a:link{color: rgb(0,0,0); text-decoration: none;}
+a:visited{color: rgb(0,0,0); text-decoration: none;}
+a:hover{color: rgb(0,0,0); text-decoration: none;}
+a:active{color: rgb(0,0,0); text-decoration: none;}
 
 /*========================
       Phone Portrait
@@ -29,24 +32,25 @@ a{
 
 /*                  HEADER
 ===============================================*/
-  body{
+  section#landingZone{
     background-image: url('background_phone_portrait.png');
     background-size: cover;
   }
-  header h1 {
+  section#landingZone header h1 {
     width: 95%;
-    margin: 4% 0% 4% 3%;
+    margin: 0% 0% 4% 3%;
+    padding: 3% 0% 0% 0%;
   }
-  main{
-    margin: 50% 0% 50% 0%;
+  section#landingZone main{
+    margin: 33% 0% 42% 0%;
   }
-  main section article img{
+  section#landingZone main section article img{
     display: none;
   }
-  main section article blockquote{
+  section#landingZone main section article blockquote{
     display:none;
   }
-  main section article a{
+  section#landingZone main section article a{
     background-color: rgba(255,255,255,0.3);
     margin: 0% auto 0% auto;
     text-align: center;
@@ -55,22 +59,44 @@ a{
     border-style: solid;
     border-color: #F0DB00;
     border-radius: 3px;
-    border-width: 1px;
+    border-width: 4px;
     padding: 1em 3em 1em 3em;
   }
-  footer nav{
+  section#landingZone{
+    margin-bottom: 0px;
+  }
+  section#landingZone footer{
+    padding-bottom: 18%;
+  }
+  section footer nav{
     background-color: rgba(255,255,255,0.3);
     margin: 0% auto 0% auto;
-    padding:5% 0% 0% 8%;
+    padding:0% 0% 0% 0%;
     font-size: 3em;
     font-weight: bold;
     display: block;
-    width:2em;
-    height:2em;
+    width:1.4em;
+    height:1.4em;
     border-style: solid;
     border-color: #F0DB00;
     border-radius: 49%;
-    border-width: 3px;
+    border-width: 4px;
+    text-align: center;
+  }
+  section#howtoZone main {
+    margin: 0% 3% 0% 3%;
+  }
+
+  section#howtoZone main h2 {
+    color: black;
+    text-align: left;
+    margin: 4% 0% 3% 0%;
+    padding: 0;
+  }
+
+  section#howtoZone main p {
+    line-height: 1.4em;
+    margin: 4% 0% 7% 0%;  
   }
 
 
