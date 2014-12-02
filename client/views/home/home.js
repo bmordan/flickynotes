@@ -8,7 +8,9 @@ Template.scrollDown.rendered = function(){
 Template.scrollUp.rendered = function(){
   var el = this.find('nav')
   Hammer(el).on('tap', function(e){
-    $('#landingZone').slideDown(500)
+    $('#landingZone').slideDown(500,'swing',function(){
+      window.scrollTo(0,0)
+    })
   })
 }
 
