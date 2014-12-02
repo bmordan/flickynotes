@@ -17,7 +17,7 @@ Template.scrollUp.rendered = function(){
 Template.getstarted.helpers({
   smartLink: function(){
     var screenWidth = $(window).width()
-    if(screenWidth > 384){
+    if(screenWidth > 680){
       return "/board"
     }else{
       return "/phone"
