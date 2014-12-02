@@ -33,7 +33,6 @@ Tracker.autorun(function(){
       _id: Session.get('pointerId'),
       x: 100,
       y: 200,
-      state: 'initialized',
       visible: "inline",
       element: null
     });
@@ -41,12 +40,11 @@ Tracker.autorun(function(){
     startMovementCapture();
   }
   else if(Session.get('pointerState') === 'moving'){
-    Pointer.update(Session.get('pointerId'),{$set:{visible: "none", state: 'moving'}});
+    Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}});
     pointerStream.emit('movePostit');
   }
   else if( Session.get('pointerState') === 'placed'){
     stopMovementCapture();
-    Pointer.update(Session.get('pointerId'),{$set:{state: 'placed'}});
     pointerStream.emit('resetPostit');
     Session.set('pointerState', undefined);
   }
