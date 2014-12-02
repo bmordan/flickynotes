@@ -1,5 +1,21 @@
 <template name='home'>
-  <a>Hello World</a>
-  <a href="/board" id="boardLink">Board</a>
-  <a href="/phone" id="phoneLink">Phone</a>
+  <header>{{> header}}</header>
+  <main>{{> getstarted}}</main>
+  <footer>{{> scrollDown}}</footer>
+</template>
+
+<template name="header">
+  <h1><a href="/"><img src="flickynotes_logo.png"></a></h1>
+</template>
+
+<template name="getstarted">
+  <section>
+    <article><img src="iphone_vector.png"></article>
+    <article><blockquote>Improve your meetings with this fun and effective way to share your ideas and workflow with a team. Or just use it for fun!</blockquote></article>
+    <article><a href="{{smartLink}}">Get Started</a></article>
+  </section>
+</template>
+
+<template name="scrollDown">
+  <nav><a href="#">&#8615;</a></nav>
 </template>

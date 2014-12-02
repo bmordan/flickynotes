@@ -12,29 +12,67 @@ body{
   width: 100%;
   background-color: rgba(222,222,222,0.1);
   color: rgba(0,0,0,0.2);
+  font-family: 'Raleway', sans-serif;
 }
-header, legend{font-family: 'Roboto', sans-serif;}
+a{
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  color: rgb(0,0,0);
+}
+
 
 /*========================
-      Media Queries - Phone
+      Phone Portrait
 ========================*/
 
-@media only screen and (min-width: 0em) and (max-width: 44em){
+@media only screen and (min-width: 0em) and (max-width: 24em){
 
 /*                  HEADER
 ===============================================*/
-  header {
-    background-color: rgba(222,222,222,0.7);
+  body{
+    background-image: url('background_phone_portrait.png');
+    background-size: cover;
+  }
+  header h1 {
+    width: 95%;
+    margin: 4% 0% 4% 3%;
+  }
+  main{
+    margin: 50% 0% 50% 0%;
+  }
+  main section article img{
+    display: none;
+  }
+  main section article blockquote{
+    display:none;
+  }
+  main section article a{
+    background-color: rgba(255,255,255,0.3);
+    margin: 0% auto 0% auto;
+    text-align: center;
+    width: 60%;
+    display: block;
+    border-style: solid;
+    border-color: #F0DB00;
+    border-radius: 3px;
+    border-width: 1px;
+    padding: 1em 3em 1em 3em;
+  }
+  footer nav{
+    background-color: rgba(255,255,255,0.3);
+    margin: 0% auto 0% auto;
+    padding:5% 0% 0% 8%;
+    font-size: 3em;
+    font-weight: bold;
+    display: block;
+    width:2em;
+    height:2em;
+    border-style: solid;
+    border-color: #F0DB00;
+    border-radius: 49%;
+    border-width: 3px;
   }
 
-  h1 {
-    color: grey;
-    font-size: 18px;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-bottom: solid 1px;
-  }
 
 /*                    CAROUSEL
 ================================================*/
@@ -129,10 +167,36 @@ header, legend{font-family: 'Roboto', sans-serif;}
 }
 
 /*========================
-      Media Queries - Desktop
+      Phone Landscape
+========================*/
+@media only screen and (min-width: 24em) and (max-width: 44em){
+
+/*                  HEADER
+===============================================*/
+  body{
+    background-image: url('background_phone_landscape.png');
+    background-size: cover;
+  }
+  header h1 {
+    width: 67%;
+    margin: 2% 0% 0% 2%;
+  }
+}
+
+/*========================
+      Desktop
 ========================*/
 
 @media only screen and (min-width: 45em){  /* DESKTOPS */
+
+  body{
+    background-image: url('background_desktop.png');
+    background-size: cover;
+  }
+  header h1 {
+    width: 25%;
+    margin: 1% 0% 0% 0.5%;
+  }  
   main{
     width:98%;
     margin: 0% auto 0% 2.2%;
