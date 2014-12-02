@@ -29,19 +29,20 @@ Template.pointercontrol.rendered = function(){
 Tracker.autorun(function(){
 
   if(Session.get('pointerState') === 'initialized'){
-    Pointer.insert({
-      _id: Session.get('pointerId'),
-      x: 100,
-      y: 200,
-      visible: "inline",
-      element: null
-    });
+    var pointer = new Pointer
+    // Pointer.insert({
+    //   _id: Session.get('pointerId'),
+    //   x: 100,
+    //   y: 200,
+    //   visible: "inline",
+    //   element: null
+    // });
 
     startMovementCapture();
   }
   else if(Session.get('pointerState') === 'moving'){
     Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}});
-    pointerStream.emit('movePostit');
+    pointerStream.emit('movePostit', pointer);
   }
   else if( Session.get('pointerState') === 'placed'){
     stopMovementCapture();

@@ -40,7 +40,7 @@ Template.board.rendered = function(){
 
   var move = false;
 
-  pointerStream.on('movePostit', function(){
+  pointerStream.on('movePostit', function(pointer){
     move = true
     var x = Pointer.returnx()
     var y = Pointer.returny()
