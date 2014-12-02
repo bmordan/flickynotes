@@ -1,41 +1,56 @@
+var pointerStates = ['initialized', 'moving', 'placed'];
+
+function pointerState(previousPointerState){
+  if(previousPointerState){
+    var previousIndex = _.indexOf(pointerStates, previousPointerState);
+    return pointerStates[previousIndex + 1];
+  }
+  else{
+    return _.first(pointerStates);
+  }
+}
+
 Template.pointercontrol.rendered = function(){
   
   Meteor.call('clearPointer')
   Session.set('pointerId', new Mongo.ObjectID)
 
   var pointerId = function(){ return Session.get('pointerId')}
+
   var pointerElement = this.find('kbd')
   var pointerControl = new Hammer(pointerElement)
 
   pointerControl.on('tap click', function(e){
-    
-    switch(managePointerTaps(pointerId)){
-      case 0:
-        stopMovementCapture()
-        pointerStream.emit('resetPostit')
-        console.log("update postit | reset")
-        break;
-      case 1:
-        startMovementCapture()
-        console.log("move pointer")
-        break;
-      case 2:
-        Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}})
-        pointerStream.emit('movePostit') 
-        console.log("move postit")  
-        break;
-    }
-  })
+    var newPointerState = pointerState(Session.get('pointerState'));
+    Session.set('pointerState', newPointerState);
+  });
 }
 
-function managePointerTaps(pointerId){
-  if(Pointer.find().fetch().length === 0){
-    Pointer.add(pointerId())
-    return 1
-  }else{
-    return Pointer.incrementTap(pointerId())
+Tracker.autorun(function(){
+
+  if(Session.get('pointerState') === 'initialized'){
+    Pointer.insert({
+      _id: Session.get('pointerId'),
+      x: 100,
+      y: 200,
+      state: 'initialized',
+      visible: "inline",
+      element: null
+    });
+
+    startMovementCapture();
   }
-}
+  else if(Session.get('pointerState') === 'moving'){
+    Pointer.update(Session.get('pointerId'),{$set:{visible: "none", state: 'moving'}});
+    pointerStream.emit('movePostit');
+  }
+  else if( Session.get('pointerState') === 'placed'){
+    stopMovementCapture();
+    Pointer.update(Session.get('pointerId'),{$set:{state: 'placed'}});
+    pointerStream.emit('resetPostit');
+    Session.set('pointerState', undefined);
+  }
+});
 
 function writeCoordinates(m){
   var x = (m.gamma*15).toPrecision(3)
