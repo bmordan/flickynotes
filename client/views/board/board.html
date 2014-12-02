@@ -18,10 +18,12 @@
       </fieldset>
     {{/each}}
   </main>
-  <footer>{{>pointer}}</footer>
+  <footer>{{>pointerElement}}</footer>
 </template>
 
-<template name="pointer">
-  <nav style="left: {{x}}px; top: {{y}}px; display:{{display}};"></nav>
+<template name="pointerElement">
+  {{#with pointerRender}}
+    <nav style="left: {{x}}px; top: {{y}}px; display:{{visible}};"></nav>
+  {{/with}}
 </template>
 

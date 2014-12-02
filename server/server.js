@@ -20,7 +20,6 @@ Meteor.methods({
      Boards.remove({});
       Zones.remove({});
     Postits.remove({});
-    Pointer.remove({});
     console.log("All collections have been set to zero")
   },
 
@@ -43,8 +42,8 @@ Meteor.methods({
   },
   resetDemoBoard: function(){
     Boards.remove({title: "Demo"})
-  },
-  clearPointer: function(){
-    Pointer.remove({})
   }
+  // clearPointer: function(){
+  //   Pointer.remove({})
+  // }
 })

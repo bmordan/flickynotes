@@ -1,4 +1,6 @@
-pointerStream = new Meteor.Stream('pointer')
+pointerStream = new Meteor.Stream('pointer');
+
+pointer = null;
 // Pointer = new Mongo.Collection("Pointer")
 
 

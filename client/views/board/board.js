@@ -24,51 +24,55 @@ Template.board.helpers({
   }
 })
 
-Template.pointer.helpers({
-  x: function() {
-    return Pointer.returnx()
-  },
-  y: function() {
-    return Pointer.returny()
+Template.pointerElement.helpers({
+  pointerRender: function(){
+    return Session.get('pointer')
   },
   display: function(){
-    return Pointer.returnDisplay()
+    return this.visibility;
   }
 })
 
 Template.board.rendered = function(){
-
   var move = false;
+
+  pointerStream.on('createPointer', function(pointer){
+    console.log("*******pointer created*******")
+    console.log(pointer)
+    Session.set('pointer', pointer)
+  })
 
   pointerStream.on('movePostit', function(pointer){
     move = true
-    var x = Pointer.returnx()
-    var y = Pointer.returny()
-    var el = document.elementFromPoint(x-2,y-2)
-    if($(el).prop('tagName') === "LI"){
-      Session.set('elementId',document.elementFromPoint(x-2,y-2).id)
-      moveRecursive(Session.get('elementId')) 
+    if (Session.get('elementMoving') === undefined) {
+      el = document.elementFromPoint(pointer.x-2,pointer.y-2)
+      Session.set('elementMoving', el)
+      alert(el);
     }
-  })
+    else {
+      var elementId = Session.get('elementMoving').id
+      $('#'+elementId).css('position', 'absolute')
+      $('#'+elementId).css('left',pointer.x + 'px')
+      $('#'+elementId).css('top',pointer.y + 'px')
+    }
+  });
 
-  pointerStream.on('resetPostit', function(){
+  pointerStream.on('resetPostit', function(pointer){
     move = false
     var postitId = Session.get('elementId')
-    var zoneId = document.elementFromPoint(Pointer.returnx()-5,Pointer.returny()-5).id
+    var zoneId = document.elementFromPoint(pointer.x - 5, pointer.y - 5).id
+    Session.set('pointer', pointer)
     Postits.update(postitId, {$set: {zoneId: new Mongo.ObjectID(zoneId)}})
-    Meteor.call('clearPointer')
     $('#'+postitId).css('position', 'static')
   })
 
-  function moveRecursive(elementId){
-    $('#'+elementId).css('position', 'absolute')
-    $('#'+elementId).css('left',Pointer.returnx()+'px')
-    $('#'+elementId).css('top',Pointer.returny()+'px')
-    if(move)
-      setTimeout(function(){moveRecursive(elementId)},100)
-  }
-
-
+  // function moveRecursive(elementId, pointer){
+  //   $('#'+elementId).css('position', 'absolute')
+  //   $('#'+elementId).css('left',pointer.x + 'px')
+  //   $('#'+elementId).css('top',pointer.y + 'px')
+  //   if(move)
+  //     setTimeout(function(){moveRecursive(elementId)},100)
+  // }
 }
 
 Template.board.events = {

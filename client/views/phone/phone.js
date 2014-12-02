@@ -12,7 +12,7 @@ function pointerState(previousPointerState){
 
 Template.pointercontrol.rendered = function(){
   
-  Meteor.call('clearPointer')
+  // Meteor.call('clearPointer')
   Session.set('pointerId', new Mongo.ObjectID)
 
   var pointerId = function(){ return Session.get('pointerId')}
@@ -20,41 +20,50 @@ Template.pointercontrol.rendered = function(){
   var pointerElement = this.find('kbd')
   var pointerControl = new Hammer(pointerElement)
 
-  pointerControl.on('tap click', function(e){
+  pointerControl.on('tap', function(e){
+    e.preventDefault()
+    // if(e.pointerType === "touch"){
+    console.log("tapped")
     var newPointerState = pointerState(Session.get('pointerState'));
     Session.set('pointerState', newPointerState);
+    // }
   });
+
 }
 
 Tracker.autorun(function(){
-
+  console.log("*****")
+  console.log(Session.get('pointer'))
   if(Session.get('pointerState') === 'initialized'){
-    var pointer = new Pointer
-    // Pointer.insert({
-    //   _id: Session.get('pointerId'),
-    //   x: 100,
-    //   y: 200,
-    //   visible: "inline",
-    //   element: null
-    // });
-
-    startMovementCapture();
+    console.log('initialized')
+    if(pointer === null){
+      pointer = new Pointer();
+      Session.set('pointer', pointer)
+      startMovementCapture();
+    }
+    pointer = Session.get('pointer')
+    pointerStream.emit('createPointer', pointer);
   }
   else if(Session.get('pointerState') === 'moving'){
-    Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}});
+    console.log('moving')
+    pointer = Session.get('pointer')
+    pointer.visible = 'none'
+    Session.set('pointer', pointer)
     pointerStream.emit('movePostit', pointer);
   }
   else if( Session.get('pointerState') === 'placed'){
+    pointer = Session.get('pointer')
     stopMovementCapture();
-    pointerStream.emit('resetPostit');
+    pointerStream.emit('resetPostit', pointer);
     Session.set('pointerState', undefined);
   }
 });
 
 function writeCoordinates(m){
-  var x = (m.gamma*15).toPrecision(3)
-  var y = (m.beta*15).toPrecision(3)
-  Pointer.update(Session.get('pointerId'),{$set:{x: x, y: y}})
+  pointer = Session.get('pointer')
+  pointer.x = (m.gamma*15).toPrecision(3)
+  pointer.y = (m.beta*15).toPrecision(3)
+  Session.set('pointer', pointer)
 }
 
 function startMovementCapture() {
