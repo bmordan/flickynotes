@@ -48,46 +48,42 @@ function stopMovementCapture() {
   window.removeEventListener('deviceorientation', writeCoordinates, false)
 }
 
-Template.document_ready.rendered = function(){
+Template.submitPostit.rendered = function(){
+  
+  var textarea = this.find('textarea')
+  var postit = new Hammer(textarea)
+  postit.get('swipe').set({direction: Hammer.DIRECTION_ALL})
+  
+  postit.on('swipeup', function(e){
+    var content = $('textarea').val()
+    if(content !== ""){
+      console.log("Postits.add(%s)", content)
+      playSound()
+    }else{
+      alert("Whoops! Your note was empty.");
+    }
+  })
 
-    $('.carousel').carousel({
-      interval: false
-    })
-    $('.carousel').carousel('pause')
+}
 
-    var textPostit = document.getElementById('submit-postit');
-    var hammerPostit = new Hammer(textPostit);
-    hammerPostit.get('swipe').set({direction: Hammer.DIRECTION_ALL});
+Template.zoneSelector.rendered = function(){
 
-    hammerPostit.on("swipeup", function(event) {
-      var audio = new Howl({
-        urls: ['sound.ogg', 'sound.mp3'],
-        buffer: true
-      })
-      var text = $('#text-postit');
-      if(text.val()){
-        audio.play();
-        var zoneId = $('.item.active h2').data().id;
-        Postits.add(text.val(), zoneId);
-        text.val("");
-      }
-      else {
-        alert("You need to insert a text to post to the board");
-      }
-    });
+  $('.carousel').carousel({interval: false})
+  $('.carousel').carousel('pause')
 
-    var carouselSwipe = document.getElementById('carousel-example-generic');
-    var hammerSwipe = new Hammer(carouselSwipe); 
-    hammerSwipe.get('swipe').set({direction: Hammer.DIRECTION_ALL})
+  var zoneSelector = new Hammer(document.getElementById('carousel'))
+  zoneSelector.get('swipe').set({direction: Hammer.DIRECTION_ALL})
 
-    hammerSwipe.on('swipeleft', function(){
-        $('.carousel').carousel('next'); 
-    });
+  zoneSelector.on('swipeleft', function(){
+    $('.carousel').carousel('next');
+  })
+  zoneSelector.on('swiperight', function(){
+    $('.carousel').carousel('prev');
+  })
+}
 
-    hammerSwipe.on('swiperight', function(){
-        $('.carousel').carousel('prev'); 
-    });
-
+function playSound(){
+  $('#sendSound').get(0).play()
 }
 
 Template.zones.helpers({

@@ -10,7 +10,6 @@ body{
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
-  background-color: rgba(222,222,222,0.1);
   color: rgba(0,0,0,0.2);
   font-family: 'Raleway', sans-serif;
 }
@@ -30,8 +29,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
 @media only screen and (min-width: 0em) and (max-width: 24em){
 
-/*                  HEADER
-===============================================*/
+/* ================= LANDING ZONE =====================*/
   section#landingZone{
     background-image: url('background_phone_portrait.png');
     background-size: cover;
@@ -83,6 +81,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     border-width: 4px;
     text-align: center;
   }
+/* ================= HOWTO ZONE =====================*/  
   section#howtoZone main {
     margin: 0% 3% 0% 3%;
   }
@@ -99,51 +98,77 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     margin: 4% 0% 7% 0%;  
   }
 
+/*                        POST IT OBJECT
+  ===================================================================*/
+  section#submit-postit article{
+    margin-top: 0em;
+  }
+  section#submit-postit article textarea{
+    display: block;
+    background-image: url('postit.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 14em;
+    width: 100%;
+    margin: 0% 0% 0% -2%;
+    outline: none;
+    resize: none;
+    border-style: none;
+    text-align: left;
+    padding: 20% 7% 11% 13%;
+    color: black;
+    font-size: 1.3em;
+    line-height: 1.1em;
+    overflow: hidden;
+  }
 
 /*                    CAROUSEL
 ================================================*/
-  .carousel {
-    background-color: blue;
+  div.carousel-inner {
+    margin: 0% auto 0% auto;
+  }
+  div.item {
+    text-align: center;
+    color: rgb(144,144,144);
+    width: 100%;
+    margin: 2% auto 6% auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(144,144,144) rgb(255,255,255);
+    padding: 1% 0% 1% 0%;
   }
 
-  .carousel-indicators {
-    bottom: 3px
+  ol.carousel-indicators{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
   }
 
-  h2 {
-  font-family: helvetica;
-  font-size: 22px;
-  margin-top: 11px;
-  padding-bottom: 22px;
-  text-align: center;
-  color:white;
-}
-
-/*                        POST IT OBJECT
-  ===================================================================*/
-
-  textarea#text-postit{
-    font-family: helvetica;
-    font-size: 15px;
-    border: none;
-    resize: none;
-    background-color: #ffff88;
-    height: 165px;
-    width: 95%;
+  ol.carousel-indicators li{
+    border-color: rgb(144,144,144);
   }
 
+  ol.carousel-indicators li.active{
+    background-color: rgb(144,144,144);
+  }
 
   /*               POINTER CONTROL
 ===============================================*/
   kbd{
     display: block;
-    text-align: center;
-    font-size: 3em;
-    width:100%;
+    border-radius: 49%;
+    width:3em;
+    height:3em;
+    margin: 4% auto 0% auto;
+    box-shadow: -2px 3px 4px rgba(144,144,144,1);
     line-height:1.5em;
     background-color: hotpink;
-    color: rgb(255,255,255);
-    font-family: 'Rubik One', sans-serif;
   }
 
 
