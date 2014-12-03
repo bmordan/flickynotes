@@ -1,37 +1,34 @@
 <template name="phone">
-  {{> document_ready}}
-  <section id="submit-postit">
-    <article id="postit-object">
-      <form class="new-postit">
-          <textarea id='text-postit' name="text-postit" placeholder="Type to add a new Postit.."></textarea>
-        </form>
-      <article id="postit-object-shadow">
-      </article>
-    </article>
-  </section>
-
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      {{> indicators}}
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-      {{> zones}}
-    </div>
-  </div>
-  <section>
-    {{>pointercontrol}}
-  </section>
+  {{> icon}}
+  {{> submitPostit}}
+  {{> zoneSelector}}
+  {{> pointercontrol}}
+  {{> audio}}
 </template>
 
-<template name="document_ready"></template>
+<template name="icon">
+  <nav id="icon"><a href="/"><img src="flickynotes_icon.png"></a></nav>
+</template>
+
+<template name="submitPostit">
+  <section id="submit-postit">
+    <article>
+      <textarea name="text-postit" placeholder="Type to add a new Postit.."></textarea>
+    </article>
+  </section> 
+</template>
+
+<template name="zoneSelector">
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">{{> indicators}}</ol>
+    <div class="carousel-inner" role="listbox">{{> zones}}</div>
+  </div>  
+</template>
 
 <template name="zones">
   {{#each zonesCollection}}
     <div class="item {{selected}}" >
-      <h2 data-id="{{_id._str}}">{{name}}</h2>
+      <label data-id="{{_id._str}}">{{name}}</label>
     </div>
   {{/each}}
 </template>
@@ -43,5 +40,12 @@
 </template>
 
 <template name="pointercontrol">
-  <kbd id="pointerElement">Move</kbd>
+  <section><kbd></kbd></section>
+</template>
+
+<template name="audio">
+  <audio id="sendSound">
+    <source src="sound.ogg">
+    <source src="sound.mp3">
+  </audio>
 </template>

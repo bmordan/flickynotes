@@ -1,5 +1,48 @@
 <template name='home'>
-  <a>Hello World</a>
-  <a href="/board" id="boardLink">Board</a>
-  <a href="/phone" id="phoneLink">Phone</a>
+  <section id="landingZone" style="height:{{height}}px">{{>landingZone}}</section>
+  <section id="howtoZone">{{>howtoZone}}</section>
+</template>
+
+<template name="landingZone">
+  <header>{{> header}}</header>
+  <main>{{> getstarted}}</main>
+  <footer>{{> scrollDown}}</footer>
+</template>
+
+<template name="howtoZone">
+  <main>
+    <h2>Swipe Up</h2>
+    <p>To add notes to the board simply type your idea or message then swipe up over the note to send it to the board.</p>
+    <h2>Swipe Left</h2>
+    <p>To select the column you want to add your postit to swipe left or right then swipe up to send your note.</p>
+    <h2>First Tap</h2>
+    <p>Tap the pink circle once to create a pointer on the screen.</p>
+    <h2>Move</h2>
+    <p>Move and tilt your phone to control the position of the pointer on the screen.</p>
+    <h2>Second Tap</h2>
+    <p>Select a note with a second tap.</p>
+    <h2>Third Tap</h2>
+    <p>When you have positioned your note tap a third time to place your note.</p>
+  </main>
+  <footer>{{> scrollUp}}</footer> 
+</template>
+
+<template name="header">
+  <h1><a href="/"><img src="flickynotes_logo.png"></a></h1>
+</template>
+
+<template name="getstarted">
+  <section>
+    <article><img src="iphone_vector.png"></article>
+    <article><blockquote><h2>Sticky notes without the paper</h2><p>Improve your meetings with this fun and effective way to share your ideas and workflow with a team. Or just use it for fun!</p></blockquote></article>
+    <article><a href="{{smartLink}}">Get Started</a></article>
+  </section>
+</template>
+
+<template name="scrollDown">
+  <nav><a href="#">&#8615;</a></nav>
+</template>
+
+<template name="scrollUp">
+  <nav><a href="#">&#8613;</a></nav>
 </template>

@@ -23,7 +23,6 @@ Template.pointercontrol.rendered = function(){
 
   pointerControl.on('tap', function(e){
     e.preventDefault()
-    console.log("tapped")
     var newPointerState = pointerState(Session.get('pointerState'));
     Session.set('pointerState', newPointerState);
   });
@@ -56,12 +55,12 @@ Tracker.autorun(function(){
 });
 
 function writeCoordinates(m){
-  var board = _.first(Boards.getDemo())
-  var halfWindowWidth = board.windowWidth/2.1
-  var halfWindowHeight = board.windowHeight/2.1 
+  // var board = _.first(Boards.getDemo())
+  var halfWindowWidth = 680
+  var halfWindowHeight = 400 
   pointer = Session.get('pointer')
-  pointer.x = (halfWindowWidth + (m.gamma*15)).toPrecision(3)
-  pointer.y = (((m.beta*-1)*15) + (halfWindowHeight)).toPrecision(3)
+  pointer.x = (halfWindowWidth + (m.gamma*15)).toPrecision(4)
+  pointer.y = (((m.beta*-1)*15) + (halfWindowHeight)).toPrecision(4)
   Session.set('pointer', pointer)
   console.log(pointer.x,pointer.y)
 }
@@ -74,46 +73,44 @@ function stopMovementCapture() {
   window.removeEventListener('deviceorientation', writeCoordinates, false)
 }
 
-Template.document_ready.rendered = function(){
+Template.submitPostit.rendered = function(){
+  
+  var textarea = this.find('textarea')
+  var postit = new Hammer(textarea)
+  postit.get('swipe').set({direction: Hammer.DIRECTION_ALL})
+  
+  postit.on('swipeup', function(e){
+    var content = $('textarea').val()
+    var zoneId = $('.item.active label').data().id
+    if(content !== ""){
+      Postits.add(content,zoneId)
+      playSound()
+      $('textarea').val("")
+    }else{
+      alert("Whoops! Your note was empty.");
+    }
+  })
 
-    $('.carousel').carousel({
-      interval: false
-    })
-    $('.carousel').carousel('pause')
+}
 
-    var textPostit = document.getElementById('submit-postit');
-    var hammerPostit = new Hammer(textPostit);
-    hammerPostit.get('swipe').set({direction: Hammer.DIRECTION_ALL});
+Template.zoneSelector.rendered = function(){
 
-    hammerPostit.on("swipeup", function(event) {
-      var audio = new Howl({
-        urls: ['sound.ogg', 'sound.mp3'],
-        buffer: true
-      })
-      var text = $('#text-postit');
-      if(text.val()){
-        audio.play();
-        var zoneId = $('.item.active h2').data().id;
-        Postits.add(text.val(), zoneId);
-        text.val("");
-      }
-      else {
-        alert("You need to insert a text to post to the board");
-      }
-    });
+  $('.carousel').carousel({interval: false})
+  $('.carousel').carousel('pause')
 
-    var carouselSwipe = document.getElementById('carousel-example-generic');
-    var hammerSwipe = new Hammer(carouselSwipe); 
-    hammerSwipe.get('swipe').set({direction: Hammer.DIRECTION_ALL})
+  var zoneSelector = new Hammer(document.getElementById('carousel'))
+  zoneSelector.get('swipe').set({direction: Hammer.DIRECTION_ALL})
 
-    hammerSwipe.on('swipeleft', function(){
-        $('.carousel').carousel('next'); 
-    });
+  zoneSelector.on('swipeleft', function(){
+    $('.carousel').carousel('next');
+  })
+  zoneSelector.on('swiperight', function(){
+    $('.carousel').carousel('prev');
+  })
+}
 
-    hammerSwipe.on('swiperight', function(){
-        $('.carousel').carousel('prev'); 
-    });
-
+function playSound(){
+  $('#sendSound').get(0).play()
 }
 
 Template.zones.helpers({

@@ -10,190 +10,521 @@ body{
   background-size: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
-  background-color: rgba(222,222,222,0.1);
   color: rgba(0,0,0,0.2);
+  font-family: 'Raleway', sans-serif;
 }
-header, legend{font-family: 'Roboto', sans-serif;}
+a{
+  font-family: 'Raleway', sans-serif;
+  text-decoration: none;
+  color: rgb(0,0,0);
+}
+a:link{color: rgb(0,0,0); text-decoration: none;}
+a:visited{color: rgb(0,0,0); text-decoration: none;}
+a:hover{color: rgb(0,0,0); text-decoration: none;}
+a:active{color: rgb(0,0,0); text-decoration: none;}
 
 /*========================
-      Media Queries - Phone
+      Phone Portrait
 ========================*/
 
-@media only screen and (min-width: 0em) and (max-width: 44em){
+@media only screen and (min-width: 0em) and (max-width: 24em){
 
-/*                  HEADER
-===============================================*/
-  header {
-    background-color: rgba(222,222,222,0.7);
+/* ================= LANDING ZONE =====================*/
+  section#landingZone{
+    background-image: url('background_phone_portrait.png');
+    background-size: cover;
+  }
+  section#landingZone header h1 {
+    width: 95%;
+    margin: 0% 0% 4% 3%;
+    padding: 3% 0% 0% 0%;
+  }
+  section#landingZone main{
+    margin: 33% 0% 42% 0%;
+  }
+  section#landingZone main section article img{
+    display: none;
+  }
+  section#landingZone main section article blockquote{
+    display:none;
+  }
+  section#landingZone main section article a{
+    background-color: rgba(255,255,255,0.3);
+    margin: 0% auto 0% auto;
+    text-align: center;
+    width: 60%;
+    display: block;
+    border-style: solid;
+    border-color: #F0DB00;
+    border-radius: 3px;
+    border-width: 4px;
+    padding: 1em 3em 1em 3em;
+  }
+  section#landingZone{
+    margin-bottom: 0px;
+  }
+  section#landingZone footer{
+    padding-bottom: 18%;
+  }
+  section footer nav{
+    background-color: salmon;
+    background-color: rgba(255,255,255,0.3);
+    margin: 0% auto 0% auto;
+    padding:0% 0% 0% 0%;
+    font-size: 3em;
+    font-weight: bold;
+    display: block;
+    width:1.4em;
+    height:1.4em;
+    border-style: solid;
+    border-color: #F0DB00;
+    border-radius: 49%;
+    border-width: 4px;
+    text-align: center;
+  }
+/* ================= HOWTO ZONE =====================*/  
+  section#howtoZone main {
+    margin: 0% 3% 0% 3%;
   }
 
-  h1 {
-    color: grey;
-    font-size: 18px;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border-bottom: solid 1px;
+  section#howtoZone main h2 {
+    color: black;
+    text-align: left;
+    margin: 4% 0% 3% 0%;
+    padding: 0;
+  }
+
+  section#howtoZone main p {
+    line-height: 1.4em;
+    margin: 4% 0% 7% 0%;  
+  }
+
+/*                        POST IT OBJECT
+  ===================================================================*/
+  nav#icon{
+    position: fixed;
+    left: 5px;
+    top: 5px;
+    width:12%;
+  }
+  nav#icon img{
+    box-shadow: -1px 2px 4px rgb(144,144,144);
+  }
+
+  section#submit-postit article{
+    margin-top: 0em;
+  }
+  section#submit-postit article textarea{
+    display: block;
+    background-image: url('postit.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 14em;
+    width: 100%;
+    margin: 0% 0% 0% -2%;
+    outline: none;
+    resize: none;
+    border-style: none;
+    text-align: left;
+    padding: 20% 7% 11% 13%;
+    color: black;
+    font-size: 1.3em;
+    line-height: 1.1em;
+    overflow: hidden;
   }
 
 /*                    CAROUSEL
 ================================================*/
-  .carousel {
-    background-color: blue;
+  div.carousel-inner {
+    margin: 0% auto 0% auto;
+  }
+  div.item {
+    text-align: center;
+    color: rgb(144,144,144);
+    width: 100%;
+    margin: 2% auto 6% auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(144,144,144) rgb(255,255,255);
+    padding: 1% 0% 1% 0%;
   }
 
-  .carousel-indicators {
-    bottom: 3px
+  ol.carousel-indicators{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
   }
 
-  h2 {
-  font-family: helvetica;
-  font-size: 22px;
-  margin-top: 11px;
-  padding-bottom: 22px;
-  text-align: center;
-  color:white;
-}
-
-/*                        POST IT OBJECT
-  ===================================================================*/
-
-  textarea#text-postit{
-    font-family: helvetica;
-    font-size: 15px;
-    border: none;
-    resize: none;
-    background-color: #ffff88;
-    height: 165px;
-    width: 95%;
+  ol.carousel-indicators li{
+    border-color: rgb(144,144,144);
   }
 
-  #postit-object {
-    text-align:center;
-    width: 275px;
-    margin: 25px;
-    min-height:265px;
-    max-height:265px;
-    padding-top:35px;
-    position:relative;
-    border:1px solid #E8E8E8;
-    border-top:60px solid #fdfd86;
-    font-family:'Reenie Beanie';
-    font-size:22px;
-    border-bottom-right-radius: 60px 5px;
-    display:inline-block;
-    background: #ffff88;
-    background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%);
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(81%,#ffff88), color-stop(82%,#ffff88), color-stop(82%,#ffff88), color-stop(100%,#ffffc6));
-    background: -webkit-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
-    background: -o-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
-    background: -ms-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
-    background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 );
+  ol.carousel-indicators li.active{
+    background-color: rgb(144,144,144);
   }
-
-  /*                      POST IT SHADOW
-  ===============================================================*/
-
-  #postit-object-shadow {
-    content: "";
-    position:absolute;
-    z-index: -1;
-    right:-0px; bottom:18px;
-    width:200px;
-    height: 25px;
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow:3px 20px 7px rgba(0, 0, 0, 0.40);
-    -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-    -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-    -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-    -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
-    transform: matrix(-1, -0.1, 0, 1, 0, 0);
-  }
-
 
   /*               POINTER CONTROL
 ===============================================*/
   kbd{
     display: block;
-    text-align: center;
-    font-size: 3em;
-    width:100%;
+    border-radius: 49%;
+    width:3em;
+    height:3em;
+    margin: 4% auto 0% auto;
+    box-shadow: -2px 3px 4px rgba(144,144,144,1);
     line-height:1.5em;
     background-color: hotpink;
-    color: rgb(255,255,255);
-    font-family: 'Rubik One', sans-serif;
   }
 
 
 }
 
 /*========================
-      Media Queries - Desktop
+      Phone Landscape
+========================*/
+@media only screen and (min-width: 24em) and (max-width: 44em){
+
+  section#landingZone{
+    background-image: url('background_phone_landscape.png');
+    background-size: cover;
+  }
+  section#landingZone header h1 {
+    width: 39%;
+    margin: 0% 0% 4% 3%;
+    padding: 3% 0% 0% 0%;
+  }
+  section#landingZone main{
+    margin: 10% 0% 9% 0%;
+  }
+  section#landingZone main section article img{
+    display: none;
+  }
+  section#landingZone main section article blockquote{
+    display:none;
+  }
+  section#landingZone main section article a{
+    background-color: rgba(255,255,255,0.3);
+    margin: 0% auto 0% auto;
+    text-align: center;
+    width: 60%;
+    display: block;
+    border-style: solid;
+    border-color: #F0DB00;
+    border-radius: 3px;
+    border-width: 4px;
+    padding: 1em 3em 1em 3em;
+  }
+  section#landingZone{
+    margin-bottom: 0px;
+  }
+  section#landingZone footer{
+    padding-bottom: 18%;
+  }
+  section footer nav{
+    background-color: rgba(255,255,255,0.3);
+    margin: 0% auto 0% auto;
+    padding:0% 0% 0% 0%;
+    font-size: 3em;
+    font-weight: bold;
+    display: block;
+    width:1.4em;
+    height:1.4em;
+    border-style: solid;
+    border-color: #F0DB00;
+    border-radius: 49%;
+    border-width: 4px;
+    text-align: center;
+  }
+  section#howtoZone main {
+    margin: 0% 3% 0% 3%;
+  }
+
+  section#howtoZone main h2 {
+    color: black;
+    text-align: left;
+    margin: 4% 0% 3% 0%;
+    padding: 0;
+  }
+
+  section#howtoZone main p {
+    line-height: 1.4em;
+    margin: 4% 0% 7% 0%;  
+  }
+
+/*                        POST IT OBJECT
+  ===================================================================*/
+  nav#icon{
+    position: fixed;
+    left: 5px;
+    top: 5px;
+    width:12%;
+  }
+  nav#icon img{
+    box-shadow: -1px 2px 4px rgb(144,144,144);
+  }
+
+  section#submit-postit article{
+    margin-top: 0em;
+  }
+  section#submit-postit article textarea{
+    display: block;
+    background-image: url('postit.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 13em;
+    width: 100%;
+    margin: 0% 0% 0% -2%;
+    outline: none;
+    resize: none;
+    border-style: none;
+    text-align: left;
+    padding: 14% 35% 7% 6%;
+    color: black;
+    font-size: 1em;
+    line-height: 1em;
+    overflow: hidden;
+  }
+
+/*                    CAROUSEL
+================================================*/
+  div.carousel-inner {
+    margin: 0% auto 0% auto;
+  }
+  div.item {
+    text-align: center;
+    color: rgb(144,144,144);
+    width: 100%;
+    margin: 2% auto 0% auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(144,144,144) rgb(255,255,255);
+    padding: 1% 0% 1% 0%;
+  }
+
+  ol.carousel-indicators{
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+  }
+
+  ol.carousel-indicators li{
+    border-color: rgb(144,144,144);
+  }
+
+  ol.carousel-indicators li.active{
+    background-color: rgb(144,144,144);
+  }
+
+  /*               POINTER CONTROL
+===============================================*/
+  kbd{
+    float:right;
+    border-radius: 49%;
+    width:3em;
+    height:3em;
+    margin: -25% 19% 0% 0%;
+    box-shadow: -2px 3px 4px rgba(144,144,144,1);
+    line-height:1.5em;
+    background-color: hotpink;
+  }
+
+
+
+
+}
+
+/*========================
+      Desktop
 ========================*/
 
 @media only screen and (min-width: 45em){  /* DESKTOPS */
-  main{
-    width:98%;
-    margin: 0% auto 0% 2.2%;
+
+  section#landingZone{
+    background-image: url('background_desktop.png');
+    background-size: cover;
   }
-  header{
-    width: 100%;
-    padding: 0.2% 0% 0% 1%;
-    font-size: 213%;
+  section#landingZone header h1 {
+    width: 30%;
+    margin: 0% 0% 0% 1%;
+    padding: 1% 0% 0% 0%;
   }
-  legend, fieldset{
-    background-color: rgb(255,255,255);
-    border: solid 1px rgba(222,222,222,1);
+  section#landingZone main{
+    width:80%;
+    margin: 0% auto 0% auto;
   }
-  legend{
-    width: 92%;
-    text-align: center;
-    padding: 1%;
-    margin: 0% 0% 0% 0%;
-    font-size: 100%;
-  }
-  aside{
-    overflow:scroll;
-    padding: 20px;
-  }
-  fieldset{
-    float: left;
-    margin: 0% 0.4% 0% 0%;
-    -webkit-box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.12);
-    -moz-box-shadow:    2px 2px 5px 0px rgba(50, 50, 50, 0.12);
-    box-shadow:         2px 2px 5px 0px rgba(50, 50, 50, 0.12);
-  }
-  li{
+  section#landingZone main section article{
     display: inline-block;
     vertical-align: top;
-    width:9em;
-    height:9em;
-    background-color: rgb(237,242,128);
-    box-shadow: 1px 2px 3px -1px;
-    margin: 1em;
-    padding: 1%;
-    color: rgba(0,0,0,0.7);
-    font-family: 'Patrick Hand';
+    width: 49%;
+  }
+  section#landingZone main section article img{
+    width:66%;
+  }
+  section#landingZone main section article blockquote{
+    font-size: 284%;
+    width: 154%;
+    margin: 21% 0% 0% -43%;
+    line-height: 1.4em;
+    padding: 5% 0% 12% 7%;
+    background-color: rgba(255,255,255,0.5);
+    color: black;
   }
 
-  nav {
+  section#landingZone main section article blockquote h2{
+    font-size: 1.1em;
+    color: black;
+    margin-bottom: 3%;
+  }
+
+  section#landingZone main section article blockquote p{
+    font-size: 78%;
+    color: rgb(101,101,101);
+  }
+  section#landingZone main section article:nth-child(3){
+    position: relative;
+    float: right;
+    margin:-17% 0% 0% 0%;
+    font-size: 95%;
+  }
+  section#landingZone main section article a{
+    background-color: rgb(206,206,206);
+    font-size: 151%;
+    margin: 0% auto 0% auto;
+    padding: 0.7em 3em 0.7em 3em;
+    text-align: center;
+    width: 60%;
+    display: inline-block;
+    border-style: solid;
+    border-color: #F0DB00;
+    border-radius: 3px;
+    border-width: 4px;
+  }
+  section#landingZone{
+    margin-bottom: 0px;
+  }
+  section#landingZone footer{
+    padding-bottom: 18%;
+  }
+  section footer nav{
+    background-color: rgba(255,255,255,0.3);
+    margin: 0% auto 0% auto;
+    padding:0% 0% 0% 0%;
+    font-size: 3em;
+    font-weight: bold;
+    display: block;
+    width:1.4em;
+    height:1.4em;
+    border-style: solid;
+    border-color: #F0DB00;
+    border-radius: 49%;
+    border-width: 4px;
+    text-align: center;
+  }
+  section#howtoZone main {
+    margin: 0% 3% 0% 3%;
+  }
+
+  section#howtoZone main h2 {
+    width:30%;
+    font-size:2.3em;
+    display: inline-block;
+    color: black;
+    text-align: right;
+    margin: 4% 0% 2% 0%;
+    padding: 0;
+  }
+
+  section#howtoZone main p {
+    font-size: 1.5em;
+    width: 60%;
+    padding: 0% 0% 0% 0%;
+    margin: 0% 0% 0% 3%; 
+    line-height: 1.4em;
+    display: inline-block; 
+  }
+
+  nav#pointer{
     position: absolute;
-    left:-100px;
-    top:-100px;
-    width: 2em;
-    height: 2em;
+    width:2.2em;
+    height:2.2em;
+    box-shadow: -2px 3px 4px rgba(144,144,144,1);
     background-color: hotpink;
-  }
-  button{
-    font-size: 67%;
-    border: none;
-    border-radius: 5px;
-    margin: 0% 3% 0.5% 0%;
-    float:right;
-    color: rgba(222,222,222,1);
+    border-radius: 49%;
   }
 
+  /*===================BOARD========================*/
+
+  section#boardHeader{
+    height: 2em;
+  }
+  section#boardHeader img {
+    width: 15%;
+    margin: 0.5% 0% 0% 0.5%;
+  }
+
+  section#boardHeader nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5% 0.5% 0% 0%;
+    width: 8%;
+    text-align: center;
+    padding: 0.4% 0% 0.4% 0%;
+    border: solid 1px;
+  }
+
+  section#boardHeader nav a {
+    width: 100%;
+  }
+
+  main#boardZones {
+    margin: 0% -2% 0% 1.5%;
+    padding: 2% 0% 0% 0%;
+  }
+
+  main#boardZones fieldset {
+    float:left;
+    min-width: 14%;
+    max-width: 100%;
+    border: solid 1px;
+    vertical-align: top;
+    margin: 0% 0.5% 0% 0%;
+  }
+
+  main#boardZones legend {
+    margin: 0% 0% 1% 0%;
+    border: solid 1px;
+    width: 90%;
+    text-align: center;
+    padding: 1% 0% 1% 0%;
+    border-color: rgba(144,144,144,0.5);
+  }
+
+  main#boardZones fieldset li {
+    list-style-type: none;
+    vertical-align: top;
+    padding: 30px 6px 22px 17px;
+    background-image: url('postit.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 130px;
+    width: 130px;
+    color: black;
+    font-size: 1em;
+    word-wrap: break-word;
+    line-height: 1.35em;
   }
 
 }
