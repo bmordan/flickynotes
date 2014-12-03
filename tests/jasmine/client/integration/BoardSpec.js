@@ -15,10 +15,18 @@ describe('the board page', function() {
     expect($('fieldset').size()).toEqual(3)
   });
 
-   it('should set the board window width', function(){
+  it('should set the board window width', function(){
     var boardArr = Boards.find().fetch()
     var boardObject = _.last(boardArr)
     expect(boardObject.windowWidth).toEqual($(window).width())
   });
+
+  it('should set the board window height', function(){
+    var boardArr = Boards.find().fetch()
+    var boardObject = _.last(boardArr)
+    expect(boardObject.windowHeight).toEqual($(window).height())
+  });
+
+
 
 });
