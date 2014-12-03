@@ -1,46 +1,63 @@
-Template.pointercontrol.rendered = function(){
-  
-  Meteor.call('clearPointer')
-  Session.set('pointerId', new Mongo.ObjectID)
+var pointerStates = ['initialized', 'moving', 'placed'];
 
-  var pointerId = function(){ return Session.get('pointerId')}
+function pointerState(previousPointerState){
+  if(previousPointerState){
+    var previousIndex = _.indexOf(pointerStates, previousPointerState);
+    return pointerStates[previousIndex + 1];
+  }
+  else{
+    return _.first(pointerStates);
+  }
+}
+
+Template.pointercontrol.rendered = function(){
+
   var pointerElement = this.find('kbd')
   var pointerControl = new Hammer(pointerElement)
 
-  pointerControl.on('tap click', function(e){
-    
-    switch(managePointerTaps(pointerId)){
-      case 0:
-        stopMovementCapture()
-        pointerStream.emit('resetPostit')
-        break;
-      case 1:
-        startMovementCapture()
-        break;
-      case 2:
-        Pointer.update(Session.get('pointerId'),{$set:{visible: "none"}})
-        pointerStream.emit('movePostit') 
-        break;
-    }
-  })
+  pointerControl.on('tap', function(e){
+    e.preventDefault()
+    console.log("tapped")
+    var newPointerState = pointerState(Session.get('pointerState'));
+    Session.set('pointerState', newPointerState);
+
+  });
+
+
 }
 
-function managePointerTaps(pointerId){
-  if(Pointer.find().fetch().length === 0){
-    Pointer.add(pointerId())
-    return 1
-  }else{
-    return Pointer.incrementTap(pointerId())
+Tracker.autorun(function(){
+
+  switch(Session.get('pointerState')){
+    case 'initialized':
+      if(pointer === null){
+        pointer = new Pointer();
+        Session.set('pointer', pointer)
+        startMovementCapture();
+      }
+      pointerStream.emit('createPointer', Session.get('pointer'))    
+      break;
+    case 'moving':
+      pointerStream.emit('movePostit', Session.get('pointer'))
+      break;
+    case 'placed':
+      pointerStream.emit('resetPostit', Session.get('pointer'));
+      stopMovementCapture();
+      Session.set('pointerState', undefined);
+      pointer = null;
+      break; 
   }
-}
+
+});
 
 function writeCoordinates(m){
   var board = _.first(Boards.getDemo())
   var halfWindowWidth = board.windowWidth/2.1
-  var halfWindowHeight = board.windowHeight/2.1
-  var x = (halfWindowWidth + (m.gamma*15)).toPrecision(3)
-  var y = (((m.beta*-1)*15) + (halfWindowHeight)).toPrecision(3)
-  Pointer.update(Session.get('pointerId'),{$set:{x: x, y: y}})
+  var halfWindowHeight = board.windowHeight/2.1 
+  pointer = Session.get('pointer')
+  pointer.x = (halfWindowWidth + (m.gamma*15)).toPrecision(3)
+  pointer.y = (((m.beta*-1)*15) + (halfWindowHeight)).toPrecision(3)
+  Session.set('pointer', pointer)
 }
 
 function startMovementCapture() {
