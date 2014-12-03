@@ -7,21 +7,19 @@
       <fieldset id="{{zone._id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
         <legend>{{zone.name}}</legend>
 
-          <aside style="height:{{asideHeight}}px;" id="{{zone._id._str}}">
-            <ul>
-              {{#each postits}}
-                <li id="{{_id}}">{{content}}</li>
-              {{/each}}
-            </ul>
-          </aside>
+          {{#each postits}}
+            <li id="{{_id}}">{{content}}</li>
+          {{/each}}
 
       </fieldset>
     {{/each}}
   </main>
-  <footer>{{>pointer}}</footer>
+  <footer>{{>pointerElement}}</footer>
 </template>
 
-<template name="pointer">
-  <nav style="left: {{x}}px; top: {{y}}px; display:{{display}};"></nav>
+<template name="pointerElement">
+  {{#with pointerRender}}
+    <nav id="pointer" style="left: {{x}}px; top: {{y}}px;"></nav>
+  {{/with}}
 </template>
 

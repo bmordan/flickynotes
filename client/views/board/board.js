@@ -1,6 +1,5 @@
 Template.board.helpers({
   board: function() {
-    Session.set('moveMe', true)
     return _.first(Boards.getDemo())
   },
   zones: function(){
@@ -29,51 +28,41 @@ Template.board.helpers({
   }
 })
 
-Template.pointer.helpers({
-  x: function() {
-    return Pointer.returnx()
-  },
-  y: function() {
-    return Pointer.returny()
-  },
-  display: function(){
-    return Pointer.returnDisplay()
+Template.pointerElement.helpers({
+  pointerRender: function(){
+    return Session.get('pointer')
   }
 })
 
 Template.board.rendered = function(){
 
-  var move = false;
-  
+  var element;
 
-  pointerStream.on('movePostit', function(){
-    move = true
-    var x = Pointer.returnx()
-    var y = Pointer.returny()
-    var el = document.elementFromPoint(x-2,y-2)
-    if($(el).prop('tagName') === "LI"){
-      Session.set('elementId',document.elementFromPoint(x-2,y-2).id)
-      moveRecursive(Session.get('elementId')) 
+  $('nav#pointer').hide()
+
+  pointerStream.on('createPointer', function(pointer){
+    $(pointer.element).show()
+    Session.set('pointer', pointer)
+  })
+
+  pointerStream.on('movePostit', function(pointer){
+    if(element === undefined){
+      $(pointer.element).hide()
+      element = document.elementFromPoint(pointer.x-5,pointer.y-5).id
     }
+    $('#'+element).css('background','salmon')
+    $('#'+element).css('position','absolute')
+    $('#'+element).css('left',pointer.x+'px')
+    $('#'+element).css('top',pointer.y+'px')
+    Session.set('pointer', pointer)
+  });
+
+  pointerStream.on('resetPostit', function(pointer){
+    $('#'+element).css('position','static')
+    var zoneId = document.elementFromPoint(pointer.x-5,pointer.y-5).id
+    Postits.update(element,{$set:{zoneId: new Mongo.ObjectID(zoneId)}})
+    element = undefined
   })
-
-  pointerStream.on('resetPostit', function(){
-    move = false
-    var postitId = Session.get('elementId')
-    var zoneId = document.elementFromPoint(Pointer.returnx()-5,Pointer.returny()-5).id
-    Postits.update(postitId, {$set: {zoneId: new Mongo.ObjectID(zoneId)}})
-    Meteor.call('clearPointer')
-    $('#'+postitId).css('position', 'static')
-  })
-
-  function moveRecursive(elementId){
-    $('#'+elementId).css('position', 'absolute')
-    $('#'+elementId).css('left',Pointer.returnx()+'px')
-    $('#'+elementId).css('top',Pointer.returny()+'px')
-    if(move)
-      setTimeout(function(){moveRecursive(elementId)},100)
-  }
-
 
 }
 
