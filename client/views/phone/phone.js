@@ -11,52 +11,63 @@ function pointerState(previousPointerState){
 }
 
 Template.pointercontrol.rendered = function(){
-  
-  // Meteor.call('clearPointer')
-  Session.set('pointerId', new Mongo.ObjectID)
-
-  var pointerId = function(){ return Session.get('pointerId')}
 
   var pointerElement = this.find('kbd')
   var pointerControl = new Hammer(pointerElement)
 
   pointerControl.on('tap', function(e){
     e.preventDefault()
-    // if(e.pointerType === "touch"){
     console.log("tapped")
     var newPointerState = pointerState(Session.get('pointerState'));
     Session.set('pointerState', newPointerState);
-    // }
+
   });
 
 }
 
 Tracker.autorun(function(){
-  console.log("*****")
-  console.log(Session.get('pointer'))
-  if(Session.get('pointerState') === 'initialized'){
-    console.log('initialized')
-    if(pointer === null){
-      pointer = new Pointer();
-      Session.set('pointer', pointer)
-      startMovementCapture();
-    }
-    pointer = Session.get('pointer')
-    pointerStream.emit('createPointer', pointer);
+
+  switch(Session.get('pointerState')){
+    case 'initialized':
+      if(pointer === null){
+        pointer = new Pointer();
+        Session.set('pointer', pointer)
+        startMovementCapture();
+      }
+      pointerStream.emit('createPointer', Session.get('pointer'))    
+      break;
+    case 'moving':
+      pointerStream.emit('movePostit', Session.get('pointer'))
+      break;
+    case 'placed':
+      pointerStream.emit('resetPostit', Session.get('pointer'));
+      stopMovementCapture();
+      Session.set('pointerState', undefined);
+      pointer = null;
+      break; 
   }
-  else if(Session.get('pointerState') === 'moving'){
-    console.log('moving')
-    pointer = Session.get('pointer')
-    pointer.visible = 'none'
-    Session.set('pointer', pointer)
-    pointerStream.emit('movePostit', pointer);
-  }
-  else if( Session.get('pointerState') === 'placed'){
-    pointer = Session.get('pointer')
-    stopMovementCapture();
-    pointerStream.emit('resetPostit', pointer);
-    Session.set('pointerState', undefined);
-  }
+
+
+  // if(Session.get('pointerState') === 'initialized'){
+  //   if(pointer === null){
+  //     pointer = new Pointer();
+  //     Session.set('pointer', pointer)
+  //     startMovementCapture();
+  //   }
+  //   pointer = Session.get('pointer')
+  //   pointerStream.emit('createPointer', pointer);
+  // }
+  // else if(Session.get('pointerState') === 'moving'){
+  //   pointer = Session.get('pointer')
+  //   pointer.visible = 'none'
+  //   Session.set('pointer', pointer)
+  //   pointerStream.emit('movePostit', pointer);
+  // }
+  // else if( Session.get('pointerState') === 'placed'){
+  //   pointer = Session.get('pointer')
+  //   pointerStream.emit('resetPostit', pointer);
+  //   Session.set('pointerState', undefined);
+  // }
 });
 
 function writeCoordinates(m){

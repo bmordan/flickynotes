@@ -1,6 +1,5 @@
 Template.board.helpers({
   board: function() {
-    Session.set('moveMe', true)
     return _.first(Boards.getDemo())
   },
   zones: function(){
@@ -27,52 +26,39 @@ Template.board.helpers({
 Template.pointerElement.helpers({
   pointerRender: function(){
     return Session.get('pointer')
-  },
-  display: function(){
-    return this.visibility;
   }
 })
 
 Template.board.rendered = function(){
-  var move = false;
+
+  var element;
+
+  $('nav#pointer').hide()
 
   pointerStream.on('createPointer', function(pointer){
-    console.log("*******pointer created*******")
-    console.log(pointer)
+    $(pointer.element).show()
     Session.set('pointer', pointer)
   })
 
   pointerStream.on('movePostit', function(pointer){
-    move = true
-    if (Session.get('elementMoving') === undefined) {
-      el = document.elementFromPoint(pointer.x-2,pointer.y-2)
-      Session.set('elementMoving', el)
-      alert(el);
+    if(element === undefined){
+      $(pointer.element).hide()
+      element = document.elementFromPoint(pointer.x-5,pointer.y-5).id
     }
-    else {
-      var elementId = Session.get('elementMoving').id
-      $('#'+elementId).css('position', 'absolute')
-      $('#'+elementId).css('left',pointer.x + 'px')
-      $('#'+elementId).css('top',pointer.y + 'px')
-    }
+    $('#'+element).css('background','salmon')
+    $('#'+element).css('position','absolute')
+    $('#'+element).css('left',pointer.x+'px')
+    $('#'+element).css('top',pointer.y+'px')
+    Session.set('pointer', pointer)
   });
 
   pointerStream.on('resetPostit', function(pointer){
-    move = false
-    var postitId = Session.get('elementId')
-    var zoneId = document.elementFromPoint(pointer.x - 5, pointer.y - 5).id
-    Session.set('pointer', pointer)
-    Postits.update(postitId, {$set: {zoneId: new Mongo.ObjectID(zoneId)}})
-    $('#'+postitId).css('position', 'static')
+    $('#'+element).css('position','static')
+    var zoneId = document.elementFromPoint(pointer.x-5,pointer.y-5).id
+    Postits.update(element,{$set:{zoneId: new Mongo.ObjectID(zoneId)}})
+    element = undefined
   })
 
-  // function moveRecursive(elementId, pointer){
-  //   $('#'+elementId).css('position', 'absolute')
-  //   $('#'+elementId).css('left',pointer.x + 'px')
-  //   $('#'+elementId).css('top',pointer.y + 'px')
-  //   if(move)
-  //     setTimeout(function(){moveRecursive(elementId)},100)
-  // }
 }
 
 Template.board.events = {
