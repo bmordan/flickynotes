@@ -1,7 +1,4 @@
-Template.board.helpers({
-  board: function() {
-    return _.first(Boards.getDemo())
-  },
+Template.boardZones.helpers({
   zones: function(){
     var zones = []
     var board = Boards.findOne({title: "Demo"})
@@ -11,11 +8,6 @@ Template.board.helpers({
         var PostitsForZone = Postits.getByZone(zoneId);
         zonePostits = new Object({zone: zone, postits: PostitsForZone});
         zones.push(zonePostits);
-
-        var boardId = Boards.find().fetch()[0]._id
-        var windowWidth = $(window).width()
-        var windowHeight = $(window).height()
-        Boards.update(boardId,{$set:{windowWidth: windowWidth, windowHeight: windowHeight}})
       })
     }
     return zones
@@ -23,8 +15,13 @@ Template.board.helpers({
   zoneHeight: function(){
     return $(window).height()-75
   },
-  asideHeight:function(){
-    return $(window).height()-102
+  zoneWidth: function(){
+    var board = _.first(Boards.find().fetch())
+    return board.zoneWidth
+  },
+  rotate: function(){
+    var deg = Math.floor((Math.random()*10)+1) - 5
+    return deg
   }
 })
 
@@ -35,14 +32,18 @@ Template.pointerElement.helpers({
 })
 
 Template.board.rendered = function(){
-
   var element;
+  var boardId = Boards.find().fetch()[0]._id
+  var windowWidth = $(window).width()
+  var windowHeight = $(window).height()
+  Boards.update(boardId,{$set:{windowWidth: windowWidth, windowHeight: windowHeight}})
 
   $('nav#pointer').hide()
 
   pointerStream.on('createPointer', function(pointer){
     $(pointer.element).show()
     Session.set('pointer', pointer)
+    console.log(Session.get('pointer'))
   })
 
   pointerStream.on('movePostit', function(pointer){
@@ -68,10 +69,9 @@ Template.board.rendered = function(){
   });
 
   pointerStream.on('resetPostit', function(pointer){
-    var zoneId = document.elementFromPoint(pointer.x-5,pointer.y-5).id
-
+    var zoneId = document.elementFromPoint(pointer.x-5,pointer.y-5)
     try{
-      var zoneInsertId = new Mongo.ObjectID(zoneId.toString())
+      var zoneInsertId = new Mongo.ObjectID(zoneId.id.toString())
       Postits.update(element,{$set:{zoneId: zoneInsertId}})
     }catch(err){
       $('#'+element).css('position','static')
