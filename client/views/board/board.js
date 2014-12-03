@@ -46,21 +46,38 @@ Template.board.rendered = function(){
   })
 
   pointerStream.on('movePostit', function(pointer){
+    
+    $(pointer.element).hide()
+    
     if(element === undefined){
-      $(pointer.element).hide()
-      element = document.elementFromPoint(pointer.x-5,pointer.y-5).id
+      var DOMelement = document.elementFromPoint(pointer.x-5,pointer.y-5)
+      if($(DOMelement).prop('tagName') !== "LI"){
+        pointerStream.emit('resetPointer', pointer)
+        return
+      }else{
+        element = DOMelement.id
+      }
     }
+
     $('#'+element).css('box-shadow','-43px 44px 5px 0px rgba(144,144,144,0.8)')
     $('#'+element).css('position','absolute')
     $('#'+element).css('left',pointer.x+'px')
     $('#'+element).css('top',pointer.y+'px')
+
     Session.set('pointer', pointer)
   });
 
   pointerStream.on('resetPostit', function(pointer){
-    $('#'+element).css('position','static')
     var zoneId = document.elementFromPoint(pointer.x-5,pointer.y-5).id
-    Postits.update(element,{$set:{zoneId: new Mongo.ObjectID(zoneId)}})
+
+    try{
+      var zoneInsertId = new Mongo.ObjectID(zoneId.toString())
+      Postits.update(element,{$set:{zoneId: zoneInsertId}})
+    }catch(err){
+      $('#'+element).css('position','static')
+      $('#'+element).css('box-shadow','0px 0px 0px 0px rgba(144,144,144)')
+    }
+
     element = undefined
   })
 
