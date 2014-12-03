@@ -68,9 +68,16 @@ Template.board.rendered = function(){
   });
 
   pointerStream.on('resetPostit', function(pointer){
-    $('#'+element).css('position','static')
     var zoneId = document.elementFromPoint(pointer.x-5,pointer.y-5).id
-    Postits.update(element,{$set:{zoneId: new Mongo.ObjectID(zoneId)}})
+
+    try{
+      var zoneInsertId = new Mongo.ObjectID(zoneId.toString())
+      Postits.update(element,{$set:{zoneId: zoneInsertId}})
+    }catch(err){
+      $('#'+element).css('position','static')
+      $('#'+element).css('box-shadow','0px 0px 0px 0px rgba(144,144,144)')
+    }
+
     element = undefined
   })
 
