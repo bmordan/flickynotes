@@ -38,10 +38,11 @@ function managePointerTaps(pointerId){
 }
 
 function writeCoordinates(m){
-  var halvedWindowWidth = Boards.find().fetch()[0].windowWidth/2.1
-  var halvedWindowHeight = Boards.find().fetch()[0].windowHeight/2.1
-  var x = (halvedWindowWidth + (m.gamma*15)).toPrecision(3)
-  var y = (((m.beta*-1)*15) + (halvedWindowHeight)).toPrecision(3)
+  var board = _.first(Boards.getDemo())
+  var halfWindowWidth = board.windowWidth/2.1
+  var halfWindowHeight = board.windowHeight/2.1
+  var x = (halfWindowWidth + (m.gamma*15)).toPrecision(3)
+  var y = (((m.beta*-1)*15) + (halfWindowHeight)).toPrecision(3)
   Pointer.update(Session.get('pointerId'),{$set:{x: x, y: y}})
 }
 
