@@ -463,10 +463,65 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   /*===================BOARD========================*/
 
   section#boardHeader{
-    background-color: salmon;
     height: 2em;
   }
-  section
+  section#boardHeader img {
+    width: 15%;
+    margin: 0.5% 0% 0% 0.5%;
+  }
 
+  section#boardHeader nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5% 0.5% 0% 0%;
+    width: 8%;
+    text-align: center;
+    padding: 0.4% 0% 0.4% 0%;
+    border: solid 1px;
+  }
+
+  section#boardHeader nav a {
+    width: 100%;
+  }
+
+  main {
+    margin: 1.5% 1% 1% 1%;
+  }
+
+  main article {
+    text-align: center;
+    margin: 0% 4% 0% -2.5%;
+    padding: 0% 3% 0% 3%;
+  }
+
+  main fieldset {
+    display: inline;
+    min-width: 14%;
+    max-width: 100%;
+    width: 33%;
+    height: 500px;
+    border: solid 1px;
+  }
+
+  main legend {
+    margin: 0% 0% 1% 0%;
+    border: solid 1px;
+    text-align: center;
+    width: 90%;
+  }
+
+  main fieldset li {
+    padding: 30px 6px 22px 17px;
+    display: inline-block;
+    vertical-align: top;
+    background-image: url('postit.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: black;
+    font-size: 1em;
+    min-height: 150px;
+    min-width: 150px;
+  }
 
 }
