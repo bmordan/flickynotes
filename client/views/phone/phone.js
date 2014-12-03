@@ -58,6 +58,7 @@ function writeCoordinates(m){
   pointer.x = (halfWindowWidth + (m.gamma*15)).toPrecision(3)
   pointer.y = (((m.beta*-1)*15) + (halfWindowHeight)).toPrecision(3)
   Session.set('pointer', pointer)
+  console.log(pointer.x,pointer.y)
 }
 
 function startMovementCapture() {

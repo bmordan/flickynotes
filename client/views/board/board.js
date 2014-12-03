@@ -50,7 +50,7 @@ Template.board.rendered = function(){
       $(pointer.element).hide()
       element = document.elementFromPoint(pointer.x-5,pointer.y-5).id
     }
-    $('#'+element).css('background','salmon')
+    $('#'+element).css('box-shadow','-43px 44px 5px 0px rgba(144,144,144,0.8)')
     $('#'+element).css('position','absolute')
     $('#'+element).css('left',pointer.x+'px')
     $('#'+element).css('top',pointer.y+'px')
