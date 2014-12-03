@@ -1,27 +1,18 @@
 <template name="board">
-  <header id="{{board._id._str}}">{{board.title}}
-    <button type="button" id="clearPostits">Clear Postits</button>
-  </header>
-  <main>
-    {{#each zones}}
-      <fieldset id="{{zone._id._str}}" style="width:{{board.zoneWidth}}%;height:{{zoneHeight}}px;">
-        <legend>{{zone.name}}</legend>
+  <header>{{> boardHeader}}</header>
+  <main>{{> boardZones}}</main>
+  <footer>{{> pointer}}</footer>
+</template>
 
-          <aside style="height:{{asideHeight}}px;" id="{{zone._id._str}}">
-            <ul>
-              {{#each postits}}
-                <li id="{{_id}}">{{content}}</li>
-              {{/each}}
-            </ul>
-          </aside>
+<template name="boardHeader">
+  <section id="boardHeader"><img src="flickynotes_logo.png"><nav><a href="#">Clear</a></nav></section>
+</template>
 
-      </fieldset>
-    {{/each}}
-  </main>
-  <footer>{{>pointer}}</footer>
+<template name="boardZones">
+  
 </template>
 
 <template name="pointer">
-  <nav style="left: {{x}}px; top: {{y}}px; display:{{display}};"></nav>
+  <nav id="pointer" style="left: {{x}}px; top: {{y}}px; display:{{display}};"></nav>
 </template>
 

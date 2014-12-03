@@ -453,5 +453,20 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display: inline-block; 
   }
 
+  nav#pointer{
+    width:3em;
+    height:3em;
+    box-shadow: -2px 3px 4px rgba(144,144,144,1);
+    background-color: hotpink;
+  }
+
+  /*===================BOARD========================*/
+
+  section#boardHeader{
+    background-color: salmon;
+    height: 2em;
+  }
+  section
+
 
 }

@@ -56,8 +56,9 @@ Template.submitPostit.rendered = function(){
   
   postit.on('swipeup', function(e){
     var content = $('textarea').val()
+    var zoneId = $('.item.active label').data().id
     if(content !== ""){
-      console.log("Postits.add(%s)", content)
+      Postits.add(content,zoneId)
       playSound()
     }else{
       alert("Whoops! Your note was empty.");
