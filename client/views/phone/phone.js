@@ -35,8 +35,11 @@ function managePointerTaps(pointerId){
 }
 
 function writeCoordinates(m){
-  var x = (480 + (m.gamma*12)).toPrecision(3)
-  var y = (m.beta*12).toPrecision(3)
+  var board = _.first(Boards.getDemo())
+  var halfWindowWidth = board.windowWidth/2.1
+  var halfWindowHeight = board.windowHeight/2.1
+  var x = (halfWindowWidth + (m.gamma*15)).toPrecision(3)
+  var y = (((m.beta*-1)*15) + (halfWindowHeight)).toPrecision(3)
   Pointer.update(Session.get('pointerId'),{$set:{x: x, y: y}})
 }
 

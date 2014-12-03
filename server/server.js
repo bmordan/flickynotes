@@ -47,4 +47,7 @@ Meteor.methods({
   clearPointer: function(){
     Pointer.remove({})
   }
+
+  
+
 })

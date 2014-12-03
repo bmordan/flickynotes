@@ -12,6 +12,11 @@ Template.board.helpers({
         var PostitsForZone = Postits.getByZone(zoneId);
         zonePostits = new Object({zone: zone, postits: PostitsForZone});
         zones.push(zonePostits);
+
+        var boardId = Boards.find().fetch()[0]._id
+        var windowWidth = $(window).width()
+        var windowHeight = $(window).height()
+        Boards.update(boardId,{$set:{windowWidth: windowWidth, windowHeight: windowHeight}})
       })
     }
     return zones
@@ -39,6 +44,7 @@ Template.pointer.helpers({
 Template.board.rendered = function(){
 
   var move = false;
+  
 
   pointerStream.on('movePostit', function(){
     move = true
