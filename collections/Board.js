@@ -4,7 +4,9 @@ Boards.add = function(title){
 	Boards.insert({
 		title: title,
     zones: [],
-    zoneWidth: 0
+    zoneWidth: 0,
+    windowWidth: 0,
+    windowHeight: 0
 	})
 }
 Boards.getDemo = function(){

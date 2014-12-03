@@ -38,8 +38,10 @@ function managePointerTaps(pointerId){
 }
 
 function writeCoordinates(m){
-  var x = (m.gamma*15).toPrecision(3)
-  var y = (m.beta*15).toPrecision(3)
+  var windowWidth = $(window).width()/2
+  var windowHeight = $(window).height()/2
+  var x = (windowWidth + (m.gamma*15)).toPrecision(3)
+  var y = (((m.beta*-1)*15) + (windowHeight)).toPrecision(3)
   Pointer.update(Session.get('pointerId'),{$set:{x: x, y: y}})
 }
 
