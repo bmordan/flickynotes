@@ -10,6 +10,12 @@ function pointerState(previousPointerState){
   }
 }
 
+function pointerReset(){
+  stopMovementCapture();
+  Session.set('pointerState', undefined);
+  pointer = null;
+}
+
 Template.pointercontrol.rendered = function(){
 
   var pointerElement = this.find('kbd')
@@ -20,10 +26,11 @@ Template.pointercontrol.rendered = function(){
     console.log("tapped")
     var newPointerState = pointerState(Session.get('pointerState'));
     Session.set('pointerState', newPointerState);
-
   });
 
-
+  pointerStream.on('resetPointer', function(){
+    pointerReset()
+  })
 }
 
 Tracker.autorun(function(){
@@ -42,9 +49,7 @@ Tracker.autorun(function(){
       break;
     case 'placed':
       pointerStream.emit('resetPostit', Session.get('pointer'));
-      stopMovementCapture();
-      Session.set('pointerState', undefined);
-      pointer = null;
+      pointerReset()
       break; 
   }
 
