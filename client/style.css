@@ -132,6 +132,11 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     font-size: 1.3em;
     line-height: 1.1em;
   }
+  ::-webkit-input-placeholder {color: #C0AF00;}
+  :-moz-placeholder {color: #C0AF00;}
+  ::-moz-placeholder {color: #C0AF00;}
+  :-ms-input-placeholder {color: #C0AF00;}
+
 
 /*                    CAROUSEL
 ================================================*/
