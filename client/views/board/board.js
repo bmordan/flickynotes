@@ -6,7 +6,7 @@ Template.boardZones.helpers({
     return $(window).height()-75
   },
   zoneWidth: function(parentContext){
-    return parentContext.board.zoneWidth;
+    return parentContext.board.zoneWidth -1;
   },
   rotate: function(){
     return Math.floor((Math.random()*10)+1) - 5
