@@ -82,7 +82,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     border-width: 4px;
     text-align: center;
   }
-/* ================= HOWTO ZONE =====================*/  
+/* ================= HOWTO ZONE =====================*/
   section#howtoZone main {
     margin: 0% 3% 0% 3%;
   }
@@ -96,7 +96,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   section#howtoZone main p {
     line-height: 1.4em;
-    margin: 4% 0% 7% 0%;  
+    margin: 4% 0% 7% 0%;
   }
 
 /*                        POST IT OBJECT
@@ -138,20 +138,22 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   div.carousel-inner {
     margin: 0% auto 0% auto;
   }
+
   div.item {
     text-align: center;
+    font-size: 2em;
     color: rgb(144,144,144);
     width: 100%;
     margin: 2% auto 6% auto;
     border-style: solid;
     border-width: 1px;
     border-color: rgb(144,144,144) rgb(255,255,255);
-    padding: 1% 0% 1% 0%;
+    padding: 5% 0% 5% 0%;
   }
 
   ol.carousel-indicators{
     position: absolute;
-    bottom: 0px;
+    bottom: -.74em;
     left: 50%;
     z-index: 15;
     width: 60%;
@@ -176,7 +178,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     border-radius: 49%;
     width:3em;
     height:3em;
-    margin: 4% auto 0% auto;
+    margin: 2.5em auto 0% auto;
     box-shadow: -2px 3px 4px rgba(144,144,144,1);
     line-height:1.5em;
     background-color: hotpink;
@@ -254,7 +256,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   section#howtoZone main p {
     line-height: 1.4em;
-    margin: 4% 0% 7% 0%;  
+    margin: 4% 0% 7% 0%;
   }
 
 /*                        POST IT OBJECT
@@ -450,9 +452,9 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     font-size: 1.5em;
     width: 60%;
     padding: 0% 0% 0% 0%;
-    margin: 0% 0% 0% 3%; 
+    margin: 0% 0% 0% 3%;
     line-height: 1.4em;
-    display: inline-block; 
+    display: inline-block;
   }
 
   nav#pointer{
