@@ -28,5 +28,5 @@ Template.getstarted.helpers({
 Template.home.helpers({
   height: function(){
     return $(window).height()
-  } 
+  }
 })
