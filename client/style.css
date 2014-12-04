@@ -66,9 +66,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   section#landingZone footer{
     padding-bottom: 18%;
   }
-  section footer nav{
-    background-color: salmon;
-    background-color: rgba(255,255,255,0.3);
+  section#landingZone footer nav{
     margin: 0% auto 0% auto;
     padding:0% 0% 0% 0%;
     font-size: 3em;
@@ -76,10 +74,6 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display: block;
     width:1.4em;
     height:1.4em;
-    border-style: solid;
-    border-color: #F0DB00;
-    border-radius: 49%;
-    border-width: 4px;
     text-align: center;
   }
 /* ================= HOWTO ZONE =====================*/
@@ -180,7 +174,7 @@ kbd{
       height: 3.5em;
       display: block;
       margin: 10% auto 0% auto;
-      width: 3.5em;      
+      width: 3.5em;
       -webkit-transition: all .1s linear;
       transition: all .1s linear;
       display: block;
@@ -214,15 +208,13 @@ kbd{
     display:none;
   }
   section#landingZone main section article a{
-    /*background-color: rgba(255,255,255,0.3);*/
-    background-color: salmon;
     margin: 0% auto 0% auto;
     text-align: center;
-    width: 60%;
+    width: 40%;
     display: block;
     border-style: solid;
     border-color: #F0DB00;
-    border-radius: 3px;
+    border-radius: 10px 10px 10px 10px;
     border-width: 4px;
     padding: 1em 3em 1em 3em;
   }
@@ -232,8 +224,7 @@ kbd{
   section#landingZone footer{
     padding-bottom: 18%;
   }
-  section footer nav{
-    background-color: rgba(255,255,255,0.3);
+  section#landingZone footer nav{
     margin: 0% auto 0% auto;
     padding:0% 0% 0% 0%;
     font-size: 3em;
@@ -241,10 +232,6 @@ kbd{
     display: block;
     width:1.4em;
     height:1.4em;
-    border-style: solid;
-    border-color: #F0DB00;
-    border-radius: 49%;
-    border-width: 4px;
     text-align: center;
   }
   section#howtoZone main {
