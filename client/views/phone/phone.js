@@ -22,7 +22,7 @@ Template.pointercontrol.rendered = function(){
   var pointerControl = new Hammer(pointerElement)
 
   pointerControl.on('tap click', function(e){
-    console.log(e)
+    playSound('pointerSound')
     e.preventDefault()
     var newPointerState = pointerState(Session.get('pointerState'));
     Session.set('pointerState', newPointerState);
@@ -85,7 +85,7 @@ Template.submitPostit.rendered = function(){
     var zoneId = $('.item.active label').data().id
     if(content !== ""){
       Postits.add(content,zoneId)
-      playSound()
+      playSound('sendSound')
       $('textarea').val("")
     }else{
       alert("Whoops! Your note was empty.");
@@ -110,8 +110,8 @@ Template.zoneSelector.rendered = function(){
   })
 }
 
-function playSound(){
-  $('#sendSound').get(0).play()
+function playSound(effect){
+  $('#'+effect).get(0).play()
 }
 
 Template.zones.helpers({
