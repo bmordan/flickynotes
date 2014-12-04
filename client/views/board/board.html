@@ -5,7 +5,7 @@
 </template>
 
 <template name="boardHeader">
-  <section id="boardHeader"><a href="/"><img src="flickynotes_logo.png"></a><nav><a id="boardClearButton">Clear</a></nav></section>
+  <section id="boardHeader"><a href="/"><img src="flickynotes_logo.png"></a>{{> clearButton}}</section>
 </template>
 
 <template name="boardZones">
@@ -23,5 +23,9 @@
   {{#with pointerRender}}
     <nav id="pointer" style="left: {{x}}px; top: {{y}}px;"></nav>
   {{/with}}
+</template>
+
+<template name="clearButton">
+  <nav><a id="boardClearButton">Clear</a></nav>
 </template>
 
