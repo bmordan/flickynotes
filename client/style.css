@@ -301,6 +301,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   }
   div.item {
     text-align: center;
+    font-size: 1em;
     color: rgb(144,144,144);
     width: 100%;
     margin: 2% auto 0% auto;
@@ -327,7 +328,8 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   }
 
   ol.carousel-indicators li.active{
-    background-color: rgb(144,144,144);
+    background-color: rgb(240,219,0);
+    border-color: rgb(240,219,0);
   }
 
   /*               POINTER CONTROL
