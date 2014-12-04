@@ -518,10 +518,11 @@ kbd{
     border-radius: 5px 5px 5px 5px;
     vertical-align: top;
     margin: 0% 0.5% 0% 0%;
+    padding: 0% 1% 0% 1%;
   }
 
   main#boardZones legend {
-    margin: 0% 0% 1% 0%;
+    margin: 0% 0% 4% 0%;
     background-color: white;
     border-radius: 5px 5px 5px 5px;
     border: solid 2px;
