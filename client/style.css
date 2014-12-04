@@ -124,13 +124,13 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     margin: 0% 0% 0% -2%;
     outline: none;
     resize: none;
+    overflow: hidden;
     border-style: none;
     text-align: left;
     padding: 20% 7% 11% 13%;
     color: black;
     font-size: 1.3em;
     line-height: 1.1em;
-    overflow: hidden;
   }
 
 /*                    CAROUSEL

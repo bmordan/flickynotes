@@ -21,7 +21,8 @@ Template.pointercontrol.rendered = function(){
   var pointerElement = document.getElementById('pointerElement')
   var pointerControl = new Hammer(pointerElement)
 
-  pointerControl.on('tap', function(e){
+  pointerControl.on('tap click', function(e){
+    console.log(e)
     e.preventDefault()
     var newPointerState = pointerState(Session.get('pointerState'));
     Session.set('pointerState', newPointerState);
@@ -74,17 +75,18 @@ function stopMovementCapture() {
 
 Template.submitPostit.rendered = function(){
   
-  var textarea = document.getElementById('text-postit');
-  var postit = new Hammer(textarea)
+  var textPostit = document.getElementById('text-postit');
+  var postit = new Hammer(textPostit)
+  
   postit.get('swipe').set({direction: Hammer.DIRECTION_ALL})
   
   postit.on('swipeup', function(e){
-    var content = $('#text-postit').val()
+    var content = $('textarea').val()
     var zoneId = $('.item.active label').data().id
     if(content !== ""){
       Postits.add(content,zoneId)
       playSound()
-      $('#text-postit').val("")
+      $('textarea').val("")
     }else{
       alert("Whoops! Your note was empty.");
     }
