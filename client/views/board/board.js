@@ -43,7 +43,6 @@ Template.board.rendered = function(){
   pointerStream.on('createPointer', function(pointer){
     $(pointer.element).show()
     Session.set('pointer', pointer)
-    console.log(Session.get('pointer'))
   })
 
   pointerStream.on('movePostit', function(pointer){

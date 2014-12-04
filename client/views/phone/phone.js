@@ -18,7 +18,7 @@ function pointerReset(){
 
 Template.pointercontrol.rendered = function(){
 
-  var pointerElement = this.find('kbd')
+  var pointerElement = document.getElementById('pointerElement')
   var pointerControl = new Hammer(pointerElement)
 
   pointerControl.on('tap', function(e){
@@ -62,7 +62,6 @@ function writeCoordinates(m){
   pointer.x = (halfWindowWidth + (m.gamma*15)).toPrecision(4)
   pointer.y = (((m.beta*-1)*15) + (halfWindowHeight)).toPrecision(4)
   Session.set('pointer', pointer)
-  console.log(pointer.x,pointer.y)
 }
 
 function startMovementCapture() {

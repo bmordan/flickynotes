@@ -484,7 +484,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     padding: 0.4% 0% 0.4% 0%;
     border: solid 1px;
   }
-  
+
   section#boardHeader nav:hover {
     cursor: pointer;
   }
@@ -516,6 +516,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   main#boardZones fieldset li {
     list-style-type: none;
+/*    display: inline-block;*/
     vertical-align: top;
     padding: 30px 6px 22px 17px;
     background-image: url('postit.png');
