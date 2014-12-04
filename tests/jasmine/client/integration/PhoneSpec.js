@@ -7,10 +7,6 @@ describe('the phone page', function() {
 
   beforeEach(waitForRouter)
 
-  it ("should have 'Flicky Notes' in the header", function(){
-    expect($('h1').html()).toEqual('Flicky Notes');
-  });
-
   it ('should contain a form', function(){
     expect($('form').size()).toEqual(1);
   });

@@ -7,9 +7,9 @@ describe('the board page', function() {
 
   beforeEach(waitForRouter)
 
-	it('should have a title that reads Demo', function(){
-    expect($('h1').text()).toEqual('Demo')
-	});
+	it('should have the Flicky Notes logo', function(){
+    expect($('img').attr('src')).toEqual("flickynotes_logo.png")
+  });
 
   it('should have three columns', function(){
     expect($('fieldset').size()).toEqual(3)
