@@ -168,7 +168,8 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   }
 
   ol.carousel-indicators li.active{
-    background-color: rgb(144,144,144);
+    background-color: rgb(240,219,0);
+    border-color: rgb(240,219,0);
   }
 
   /*               POINTER CONTROL
