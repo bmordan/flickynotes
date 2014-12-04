@@ -83,6 +83,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 /* ================= HOWTO ZONE =====================*/
   section#howtoZone main {
     margin: 0% 3% 0% 3%;
+    background-color: white;
   }
 
   section#howtoZone main h2 {
@@ -240,6 +241,7 @@ kbd{
   }
   section#howtoZone main {
     margin: 0% 3% 0% 3%;
+    background-color: white;
   }
 
   section#howtoZone main h2 {
@@ -434,6 +436,10 @@ kbd{
   section#howtoZone footer nav{
     transform: rotate(180deg);
   }
+  section#howtoZone {
+    background-color: white;    
+  }
+
   section#howtoZone main {
     margin: 0% 3% 0% 3%;
   }
