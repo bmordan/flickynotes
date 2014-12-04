@@ -480,7 +480,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   /*===================BOARD========================*/
 
   section#boardHeader{
-    height: 2em;
+    height: 2.5em;
   }
   section#boardHeader img {
     width: 15%;
@@ -495,7 +495,9 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     width: 8%;
     text-align: center;
     padding: 0.4% 0% 0.4% 0%;
-    border: solid 1px;
+    background-color: #F5F5F5;
+    border: solid 4px;
+    border-color: #F0DB00;
   }
 
   section#boardHeader nav:hover {
@@ -538,7 +540,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     height: 130px;
     width: 130px;
     color: black;
-    font-size: 1em;
+    font-size: 2em;
     word-wrap: break-word;
     line-height: 1.35em;
   }
