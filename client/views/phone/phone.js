@@ -116,31 +116,13 @@ function playSound(effect){
 
 Template.zones.helpers({
   zonesCollection: function(){
-    board = _.first(Boards.getDemo());
-    arrZones = Zones.allZonesOfABoard(board._id);
-    _.each(arrZones, function(item){
-        if(item.order === 0){
-             Zones.update(item._id, {$set: {selected: "active"}});
-        }
-    });
-    arrZones = Zones.allZonesOfABoard(board._id);
-    _.sortBy(arrZones, 'order');
-    return _.sortBy(arrZones, 'order');
+    return this.zones
   }
 });
 
 Template.indicators.helpers({
   zonesCollection: function(){
-    board = _.first(Boards.getDemo());
-    arrZones = Zones.allZonesOfABoard(board._id);
-    _.each(arrZones, function(item){
-        if(item.order === 0){
-             Zones.update(item._id, {$set: {selected: "active"}});
-        }
-    });
-    arrZones = Zones.allZonesOfABoard(board._id);
-    _.sortBy(arrZones, 'order');
-    return _.sortBy(arrZones, 'order');
+    return this.zones;
   }
 });
 
