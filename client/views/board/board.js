@@ -1,26 +1,15 @@
 Template.boardZones.helpers({
   zones: function(){
-    // var zones = []
-    // if(this !== undefined){
-    //   _.each(this.zones, function(zoneId){
-    //     var zone = _.first(Zones.find(zoneId).fetch())
-    //     var PostitsForZone = Postits.getByZone(zoneId);
-    //     zonePostits = new Object({zone: zone, postits: PostitsForZone});
-    //     zones.push(zonePostits);
-    //   })
-    // }
     return this.zones
   },
   zoneHeight: function(){
     return $(window).height()-75
   },
-  zoneWidth: function(){
-    var board = _.first(Boards.find().fetch())
-    return board.zoneWidth
+  zoneWidth: function(parentContext){
+    return parentContext.board.zoneWidth;
   },
   rotate: function(){
-    var deg = Math.floor((Math.random()*10)+1) - 5
-    return deg
+    return Math.floor((Math.random()*10)+1) - 5
   }
 })
 

@@ -5,7 +5,7 @@ Router.route('/', function () {
 })
 
 Router.route('/board', function () {
-	var board = Boards.findOne({title: "Demo"})  
+	var board = _.first(Boards.find().fetch()) 
 	var zones = []
     if(board !== undefined){
       _.each(board.zones, function(zoneId){
@@ -19,7 +19,16 @@ Router.route('/board', function () {
 })
 
 Router.route('/phone', function () {
-  this.render('phone')
+	board = _.first(Boards.getDemo());
+  arrZones = Zones.allZonesOfABoard(board._id);
+  _.each(arrZones, function(item){
+      if(item.order === 0){
+        Zones.update(item._id, {$set: {selected: "active"}});
+      }
+  });
+  arrZones = Zones.allZonesOfABoard(board._id);
+  sortedZones = _.sortBy(arrZones, 'order');
+  this.render('phone', {data: {zones:sortedZones}})
 })
 
 
