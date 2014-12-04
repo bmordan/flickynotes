@@ -516,6 +516,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   main#boardZones fieldset {
     float:left;
+    border-radius: 5px 5px 5px 5px;
     border: solid 2px;
     vertical-align: top;
     margin: 0% 0.5% 0% 0%;
@@ -523,6 +524,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   main#boardZones legend {
     margin: 0% 0% 1% 0%;
+    border-radius: 5px 5px 5px 5px;
     border: solid 2px;
     width: 90%;
     text-align: center;
