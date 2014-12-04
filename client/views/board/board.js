@@ -47,7 +47,7 @@ Template.board.rendered = function(){
       }
     }
 
-    $('#'+element).css('box-shadow','-43px 44px 5px 0px rgba(144,144,144,0.8)')
+    $('#'+element).css('opacity', '0.6')
     $('#'+element).css('position','absolute')
     $('#'+element).css('left',pointer.x+'px')
     $('#'+element).css('top',pointer.y+'px')
@@ -62,7 +62,7 @@ Template.board.rendered = function(){
       Postits.update(element,{$set:{zoneId: zoneInsertId}})
     }catch(err){
       $('#'+element).css('position','static')
-      $('#'+element).css('box-shadow','0px 0px 0px 0px rgba(144,144,144)')
+      $('#'+element).css('opacity', '1')
     }
 
     element = undefined
