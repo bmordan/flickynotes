@@ -11,7 +11,7 @@ describe('the board page', function() {
     expect($('img').attr('src')).toEqual("flickynotes_logo.png")
   });
 
-  it('should have three columns', function(){
+  xit('should have three columns', function(){
     expect($('fieldset').size()).toEqual(3)
   });
 

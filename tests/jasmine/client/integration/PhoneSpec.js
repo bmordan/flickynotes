@@ -7,7 +7,7 @@ describe('the phone page', function() {
 
   beforeEach(waitForRouter)
 
-  it ('should contain a form', function(){
+  xit ('should contain a form', function(){
     expect($('form').size()).toEqual(1);
   });
 
@@ -19,7 +19,7 @@ describe('the phone page', function() {
     expect($('.carousel').size()).toEqual(1);
   });
 
-  it('In order to render the phone template we need the board id', function(){
+  xit('In order to render the phone template we need the board id', function(){
     expect($('.h2').html()).toEqual('Todo');
   });
 
