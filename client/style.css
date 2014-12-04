@@ -176,13 +176,16 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 ===============================================*/
   kbd{
     display: block;
-    border-radius: 49%;
+    border-radius: 50%;
     width:3em;
     height:3em;
     margin: 2.5em auto 0% auto;
-    box-shadow: -2px 3px 4px rgba(144,144,144,1);
     line-height:1.5em;
-    background-color: hotpink;
+    border-style: solid;
+    border-color: #F0DB00;
+    border-width: 4px;
+    background-color: #F5F5F5;
+    box-shadow: 0 0 0px gray;
   }
 
 
