@@ -101,15 +101,6 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
 /*                        POST IT OBJECT
   ===================================================================*/
-  nav#icon{
-    position: fixed;
-    left: 5px;
-    top: 5px;
-    width:12%;
-  }
-  nav#icon img{
-    box-shadow: -1px 2px 4px rgb(144,144,144);
-  }
 
   section#submit-postit article{
     margin-top: 0em;
@@ -179,19 +170,22 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   /*               POINTER CONTROL
 ===============================================*/
-  kbd{
-    display: block;
-    border-radius: 50%;
-    width:3em;
-    height:3em;
-    margin: 2.5em auto 0% auto;
-    line-height:1.5em;
-    border-style: solid;
-    border-color: #F0DB00;
-    border-width: 4px;
-    background-color: #F5F5F5;
-    box-shadow: 0 0 0px gray;
-  }
+
+
+kbd{
+      background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+      background-image: linear-gradient(top, #f4f1ee, #fff);
+      border-radius: 50%;
+      box-shadow: 0px 2px 9px 2px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+      height: 3.5em;
+      display: block;
+      margin: 10% auto 0% auto;
+      width: 3.5em;      
+      -webkit-transition: all .1s linear;
+      transition: all .1s linear;
+      display: block;
+
+    }
 
 
 }
