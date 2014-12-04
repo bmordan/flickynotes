@@ -18,10 +18,11 @@ function pointerReset(){
 
 Template.pointercontrol.rendered = function(){
 
-  var pointerElement = this.find('kbd')
+  var pointerElement = document.getElementById('pointerElement')
   var pointerControl = new Hammer(pointerElement)
 
-  pointerControl.on('tap', function(e){
+  pointerControl.on('tap click', function(e){
+    playSound('pointerSound')
     e.preventDefault()
     var newPointerState = pointerState(Session.get('pointerState'));
     Session.set('pointerState', newPointerState);
@@ -74,8 +75,9 @@ function stopMovementCapture() {
 
 Template.submitPostit.rendered = function(){
   
-  var textarea = this.find('textarea')
-  var postit = new Hammer(textarea)
+  var textPostit = document.getElementById('text-postit');
+  var postit = new Hammer(textPostit)
+  
   postit.get('swipe').set({direction: Hammer.DIRECTION_ALL})
   
   postit.on('swipeup', function(e){
@@ -83,7 +85,7 @@ Template.submitPostit.rendered = function(){
     var zoneId = $('.item.active label').data().id
     if(content !== ""){
       Postits.add(content,zoneId)
-      playSound()
+      playSound('sendSound')
       $('textarea').val("")
     }else{
       alert("Whoops! Your note was empty.");
@@ -108,37 +110,19 @@ Template.zoneSelector.rendered = function(){
   })
 }
 
-function playSound(){
-  $('#sendSound').get(0).play()
+function playSound(effect){
+  $('#'+effect).get(0).play()
 }
 
 Template.zones.helpers({
   zonesCollection: function(){
-    board = _.first(Boards.getDemo());
-    arrZones = Zones.allZonesOfABoard(board._id);
-    _.each(arrZones, function(item){
-        if(item.order === 0){
-             Zones.update(item._id, {$set: {selected: "active"}});
-        }
-    });
-    arrZones = Zones.allZonesOfABoard(board._id);
-    _.sortBy(arrZones, 'order');
-    return _.sortBy(arrZones, 'order');
+    return this.zones
   }
 });
 
 Template.indicators.helpers({
   zonesCollection: function(){
-    board = _.first(Boards.getDemo());
-    arrZones = Zones.allZonesOfABoard(board._id);
-    _.each(arrZones, function(item){
-        if(item.order === 0){
-             Zones.update(item._id, {$set: {selected: "active"}});
-        }
-    });
-    arrZones = Zones.allZonesOfABoard(board._id);
-    _.sortBy(arrZones, 'order');
-    return _.sortBy(arrZones, 'order');
+    return this.zones;
   }
 });
 

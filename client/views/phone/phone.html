@@ -1,28 +1,24 @@
 <template name="phone">
-  {{> icon}}
   {{> submitPostit}}
   {{> zoneSelector}}
   {{> pointercontrol}}
   {{> audio}}
 </template>
 
-<template name="icon">
-  <nav id="icon"><a href="/"><img src="flickynotes_icon.png"></a></nav>
-</template>
 
 <template name="submitPostit">
   <section id="submit-postit">
-    <article>
-      <textarea name="text-postit" placeholder="Type to add a new Postit.."></textarea>
+    <article id="text-postit">
+      <textarea name="text-postit" placeholder="Type then swipe up..."></textarea>
     </article>
-  </section> 
+  </section>
 </template>
 
 <template name="zoneSelector">
   <div id="carousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">{{> indicators}}</ol>
     <div class="carousel-inner" role="listbox">{{> zones}}</div>
-  </div>  
+  </div>
 </template>
 
 <template name="zones">
@@ -40,12 +36,16 @@
 </template>
 
 <template name="pointercontrol">
-  <section><kbd></kbd></section>
+  <section><kbd id='pointerElement'></kbd></section>
 </template>
 
 <template name="audio">
   <audio id="sendSound">
     <source src="sound.ogg">
     <source src="sound.mp3">
+  </audio>
+  <audio id="pointerSound">
+    <source src="hotpink.wav">
+    <source src="hotpink.ogg">
   </audio>
 </template>

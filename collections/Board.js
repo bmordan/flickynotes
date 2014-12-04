@@ -24,6 +24,7 @@ function _updateWidths(id){
   var board = Boards.findOne(id)
   // var mainWidth = 100-board.zones.length
   var updatedWidth = Math.floor(98/board.zones.length)
+
   Boards.update(id,{$set: {zoneWidth: updatedWidth}})
 }
 
