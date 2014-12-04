@@ -478,6 +478,9 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   }
 
   /*===================BOARD========================*/
+  body {
+    background-color: #282828;
+  }
 
   section#boardHeader{
     height: 2.5em;
@@ -516,22 +519,24 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   main#boardZones fieldset {
     float:left;
+    background-color: white;
     border-radius: 5px 5px 5px 5px;
-    border: solid 2px;
+    /*border: solid 2px;*/
     vertical-align: top;
     margin: 0% 0.5% 0% 0%;
   }
 
   main#boardZones legend {
     margin: 0% 0% 1% 0%;
+    background-color: white;
     border-radius: 5px 5px 5px 5px;
     border: solid 2px;
+    border-color: #282828;
     width: 90%;
     text-align: center;
     font-size: 1.5em;
     color: #636363;
     padding: 1% 0% 1% 0%;
-    border-color: rgba(144,144,144,0.5);
   }
 
   main#boardZones fieldset li {
@@ -545,7 +550,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     height: 130px;
     width: 130px;
     color: black;
-    font-size: 2em;
+    font-size: 1em;
     word-wrap: break-word;
     line-height: 1.35em;
   }
