@@ -82,7 +82,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     border-width: 4px;
     text-align: center;
   }
-/* ================= HOWTO ZONE =====================*/  
+/* ================= HOWTO ZONE =====================*/
   section#howtoZone main {
     margin: 0% 3% 0% 3%;
   }
@@ -96,7 +96,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   section#howtoZone main p {
     line-height: 1.4em;
-    margin: 4% 0% 7% 0%;  
+    margin: 4% 0% 7% 0%;
   }
 
 /*                        POST IT OBJECT
@@ -254,7 +254,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   section#howtoZone main p {
     line-height: 1.4em;
-    margin: 4% 0% 7% 0%;  
+    margin: 4% 0% 7% 0%;
   }
 
 /*                        POST IT OBJECT
@@ -450,9 +450,9 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     font-size: 1.5em;
     width: 60%;
     padding: 0% 0% 0% 0%;
-    margin: 0% 0% 0% 3%; 
+    margin: 0% 0% 0% 3%;
     line-height: 1.4em;
-    display: inline-block; 
+    display: inline-block;
   }
 
   nav#pointer{
