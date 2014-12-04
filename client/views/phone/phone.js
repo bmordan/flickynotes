@@ -75,17 +75,17 @@ function stopMovementCapture() {
 
 Template.submitPostit.rendered = function(){
   
-  var textarea = this.find('textarea')
+  var textarea = document.getElementById('text-postit');
   var postit = new Hammer(textarea)
   postit.get('swipe').set({direction: Hammer.DIRECTION_ALL})
   
   postit.on('swipeup', function(e){
-    var content = $('textarea').val()
+    var content = $('#text-postit').val()
     var zoneId = $('.item.active label').data().id
     if(content !== ""){
       Postits.add(content,zoneId)
       playSound()
-      $('textarea').val("")
+      $('#text-postit').val("")
     }else{
       alert("Whoops! Your note was empty.");
     }
