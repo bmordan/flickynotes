@@ -17,7 +17,7 @@ Template.boardZones.helpers({
   },
   zoneWidth: function(){
     var board = _.first(Boards.find().fetch())
-    return board.zoneWidth
+    return board.zoneWidth-1
   },
   rotate: function(){
     var deg = Math.floor((Math.random()*10)+1) - 5

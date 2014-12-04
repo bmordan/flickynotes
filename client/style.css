@@ -499,8 +499,8 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   }
 
   main#boardZones {
-    margin: 0% 0% 0% 1%;
-    padding: 2% 0% 0% 0%;
+    margin: 0% -2% 0% 1%;
+    padding: 1% 0% 0% 0%;
   }
 
   main#boardZones fieldset {
@@ -521,7 +521,6 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   main#boardZones fieldset li {
     list-style-type: none;
-/*    display: inline-block;*/
     vertical-align: top;
     padding: 30px 6px 22px 17px;
     background-image: url('postit.png');
