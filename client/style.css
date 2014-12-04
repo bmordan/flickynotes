@@ -56,7 +56,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display: block;
     border-style: solid;
     border-color: #F0DB00;
-    border-radius: 3px;
+    border-radius: 10px 10px 10px 10px;
     border-width: 4px;
     padding: 1em 3em 1em 3em;
   }
@@ -220,7 +220,8 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display:none;
   }
   section#landingZone main section article a{
-    background-color: rgba(255,255,255,0.3);
+    /*background-color: rgba(255,255,255,0.3);*/
+    background-color: salmon;
     margin: 0% auto 0% auto;
     text-align: center;
     width: 60%;
@@ -421,7 +422,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display: inline-block;
     border-style: solid;
     border-color: #F0DB00;
-    border-radius: 3px;
+    border-radius: 10px 10px 10px 10px;
     border-width: 4px;
   }
   section#landingZone{
@@ -521,7 +522,6 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     float:left;
     background-color: white;
     border-radius: 5px 5px 5px 5px;
-    /*border: solid 2px;*/
     vertical-align: top;
     margin: 0% 0.5% 0% 0%;
   }
