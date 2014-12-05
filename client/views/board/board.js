@@ -5,14 +5,8 @@ Template.boardZones.helpers({
   zoneHeight: function(){
     return $(window).height()-75
   },
-<<<<<<< HEAD
-  zoneWidth: function(){
-    var board = _.first(Boards.find().fetch())
-    return board.zoneWidth-1
-=======
   zoneWidth: function(parentContext){
     return parentContext.board.zoneWidth;
->>>>>>> 58a51d0e37aa6b86edc7d150a9620231ca373106
   },
   rotate: function(){
     return Math.floor((Math.random()*10)+1) - 5
