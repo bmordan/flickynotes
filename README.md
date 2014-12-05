@@ -21,6 +21,19 @@ A few functions that we'd like to add to the app are:
 - a user should be able to add collaborators
 - customizable board and flicky notes
 - create native apps for iOS and Android
+
+###Technology used
+- Meteor
+- MongoDB
+- Node.js
+- Velocity
+- Jasmine
+- Hammerjs
+- Bootstrap (just for the carousel)
+- Javascript
+- Jquery
+- HTML 5
+- CSS 3
   
 #### The Team
 
