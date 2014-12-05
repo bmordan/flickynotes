@@ -14,7 +14,7 @@ We've spent a lot of time figuring out how the velocity testing framework worked
 
 ###To do:
 We have plenty of ideas to make this project grow and we are planning to spend time on it even after Makers ends.
-A few functions that we would like to add to the app are:
+A few functions that we'd like to add to the app are:
 - sign up and sign in for users
 - profile of each user with the list of boards
 - a user should be able to create a board with a number of columns
