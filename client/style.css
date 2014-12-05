@@ -56,7 +56,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display: block;
     border-style: solid;
     border-color: #F0DB00;
-    border-radius: 3px;
+    border-radius: 10px 10px 10px 10px;
     border-width: 4px;
     padding: 1em 3em 1em 3em;
   }
@@ -66,9 +66,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   section#landingZone footer{
     padding-bottom: 18%;
   }
-  section footer nav{
-    background-color: salmon;
-    background-color: rgba(255,255,255,0.3);
+  section#landingZone footer nav, section#howtoZone footer nav{
     margin: 0% auto 0% auto;
     padding:0% 0% 0% 0%;
     font-size: 3em;
@@ -76,15 +74,20 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display: block;
     width:1.4em;
     height:1.4em;
-    border-style: solid;
-    border-color: #F0DB00;
-    border-radius: 49%;
-    border-width: 4px;
     text-align: center;
   }
-/* ================= HOWTO ZONE =====================*/  
+
+  section#howtoZone footer nav{
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+/* ================= HOWTO ZONE =====================*/
   section#howtoZone main {
     margin: 0% 3% 0% 3%;
+    background-color: white;
   }
 
   section#howtoZone main h2 {
@@ -96,32 +99,23 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   section#howtoZone main p {
     line-height: 1.4em;
-    margin: 4% 0% 7% 0%;  
+    margin: 4% 0% 7% 0%;
   }
 
 /*                        POST IT OBJECT
   ===================================================================*/
-  nav#icon{
-    position: fixed;
-    left: 5px;
-    top: 5px;
-    width:12%;
-  }
-  nav#icon img{
-    box-shadow: -1px 2px 4px rgb(144,144,144);
-  }
 
   section#submit-postit article{
-    margin-top: 0em;
+    margin: 2% 7% 0% 3%;
   }
   section#submit-postit article textarea{
     display: block;
     background-image: url('postit.png');
     background-repeat: no-repeat;
     background-size: contain;
-    height: 14em;
+    height: 13.5em;
     width: 100%;
-    margin: 0% 0% 0% -2%;
+    margin: 0% 0% 0% 0%;
     outline: none;
     resize: none;
     overflow: hidden;
@@ -143,20 +137,22 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   div.carousel-inner {
     margin: 0% auto 0% auto;
   }
+
   div.item {
     text-align: center;
+    font-size: 2em;
     color: rgb(144,144,144);
     width: 100%;
-    margin: 2% auto 6% auto;
+    margin: 0% auto 6% auto;
     border-style: solid;
     border-width: 1px;
     border-color: rgb(144,144,144) rgb(255,255,255);
-    padding: 1% 0% 1% 0%;
+    padding: 5% 0% 5% 0%;
   }
 
   ol.carousel-indicators{
     position: absolute;
-    bottom: 0px;
+    bottom: -.74em;
     left: 50%;
     z-index: 15;
     width: 60%;
@@ -171,23 +167,30 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   }
 
   ol.carousel-indicators li.active{
-    background-color: rgb(144,144,144);
+    background-color: rgb(240,219,0);
+    border-color: rgb(240,219,0);
   }
 
   /*               POINTER CONTROL
 ===============================================*/
-  kbd{
-    display: block;
-    border-radius: 49%;
-    width:3em;
-    height:3em;
-    margin: 4% auto 0% auto;
-    box-shadow: -2px 3px 4px rgba(144,144,144,1);
-    line-height:1.5em;
-    background-color: hotpink;
-  }
 
 
+kbd {
+      background-color: white;
+      background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+      content: url('arrowsbutton.png');
+      z-index: 99;
+      border-radius: 50%;
+      box-shadow: 0px 2px 9px 2px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+      height: 3.5em;
+      display: block;
+      margin: 10% auto 0% auto;
+      width: 3.5em;
+      -webkit-transition: all .1s linear;
+      transition: all .1s linear;
+      display: block;
+
+    }
 }
 
 /*========================
@@ -214,14 +217,13 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display:none;
   }
   section#landingZone main section article a{
-    background-color: rgba(255,255,255,0.3);
     margin: 0% auto 0% auto;
     text-align: center;
-    width: 60%;
+    width: 40%;
     display: block;
     border-style: solid;
     border-color: #F0DB00;
-    border-radius: 3px;
+    border-radius: 10px 10px 10px 10px;
     border-width: 4px;
     padding: 1em 3em 1em 3em;
   }
@@ -231,8 +233,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   section#landingZone footer{
     padding-bottom: 18%;
   }
-  section footer nav{
-    background-color: rgba(255,255,255,0.3);
+  section#landingZone footer nav, section#howtoZone footer nav{
     margin: 0% auto 0% auto;
     padding:0% 0% 0% 0%;
     font-size: 3em;
@@ -240,14 +241,11 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display: block;
     width:1.4em;
     height:1.4em;
-    border-style: solid;
-    border-color: #F0DB00;
-    border-radius: 49%;
-    border-width: 4px;
     text-align: center;
   }
   section#howtoZone main {
     margin: 0% 3% 0% 3%;
+    background-color: white;
   }
 
   section#howtoZone main h2 {
@@ -259,7 +257,11 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   section#howtoZone main p {
     line-height: 1.4em;
-    margin: 4% 0% 7% 0%;  
+    margin: 4% 0% 7% 0%;
+  }
+
+  section#howtoZone footer nav{
+    transform: rotate(180deg);
   }
 
 /*                        POST IT OBJECT
@@ -303,6 +305,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   }
   div.item {
     text-align: center;
+    font-size: 1em;
     color: rgb(144,144,144);
     width: 100%;
     margin: 2% auto 0% auto;
@@ -329,23 +332,28 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   }
 
   ol.carousel-indicators li.active{
-    background-color: rgb(144,144,144);
+    background-color: rgb(240,219,0);
+    border-color: rgb(240,219,0);
   }
 
   /*               POINTER CONTROL
 ===============================================*/
-  kbd{
-    float:right;
-    border-radius: 49%;
-    width:3em;
-    height:3em;
-    margin: -25% 19% 0% 0%;
-    box-shadow: -2px 3px 4px rgba(144,144,144,1);
-    line-height:1.5em;
-    background-color: hotpink;
-  }
 
-
+kbd{
+      background-color: white;
+      background-image: -webkit-linear-gradient(top, #f4f1ee, #fff);
+      background-image: linear-gradient(top, #f4f1ee, #fff);
+      content: url('arrowsbutton.png');
+      border-radius: 50%;
+      box-shadow: 0px 2px 9px 2px rgba(0, 0, 0, .3), inset 0px 4px 1px 1px white, inset 0px -3px 1px 1px rgba(204,198,197,.5);
+      height: 3.5em;
+      display: block;
+      margin: -25% 19% 0% 0%;
+      width: 3.5em;      
+      -webkit-transition: all .1s linear;
+      transition: all .1s linear;
+      float:right;
+    }
 
 
 }
@@ -413,7 +421,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display: inline-block;
     border-style: solid;
     border-color: #F0DB00;
-    border-radius: 3px;
+    border-radius: 10px 10px 10px 10px;
     border-width: 4px;
   }
   section#landingZone{
@@ -422,8 +430,7 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
   section#landingZone footer{
     padding-bottom: 18%;
   }
-  section footer nav{
-    background-color: rgba(255,255,255,0.3);
+  section#landingZone footer nav, section#howtoZone footer nav{
     margin: 0% auto 0% auto;
     padding:0% 0% 0% 0%;
     font-size: 3em;
@@ -431,12 +438,16 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     display: block;
     width:1.4em;
     height:1.4em;
-    border-style: solid;
-    border-color: #F0DB00;
-    border-radius: 49%;
-    border-width: 4px;
     text-align: center;
   }
+
+  section#howtoZone footer nav{
+    transform: rotate(180deg);
+  }
+  section#howtoZone {
+    background-color: white;    
+  }
+
   section#howtoZone main {
     margin: 0% 3% 0% 3%;
   }
@@ -455,24 +466,27 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     font-size: 1.5em;
     width: 60%;
     padding: 0% 0% 0% 0%;
-    margin: 0% 0% 0% 3%; 
+    margin: 0% 0% 0% 3%;
     line-height: 1.4em;
-    display: inline-block; 
+    display: inline-block;
   }
 
   nav#pointer{
     position: absolute;
-    width:2.2em;
-    height:2.2em;
+    width:1.7em;
+    height:1.7em;
     box-shadow: -2px 3px 4px rgba(144,144,144,1);
     background-color: hotpink;
     border-radius: 49%;
   }
 
   /*===================BOARD========================*/
+  body {
+    background-color: #282828;
+  }
 
   section#boardHeader{
-    height: 2em;
+    height: 2.5em;
   }
   section#boardHeader img {
     width: 15%;
@@ -487,7 +501,10 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     width: 8%;
     text-align: center;
     padding: 0.4% 0% 0.4% 0%;
-    border: solid 1px;
+    background-color: #F5F5F5;
+    border-radius: 10px 10px 10px 10px;
+    border: solid 3px;
+    border-color: #F0DB00;
   }
 
   section#boardHeader nav:hover {
@@ -500,23 +517,33 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
 
   main#boardZones {
     margin: 0% -2% 0% 1%;
+<<<<<<< HEAD
     padding: 1% 0% 0% 0%;
+=======
+    padding: 2% 0% 0% 0%;
+>>>>>>> 58a51d0e37aa6b86edc7d150a9620231ca373106
   }
 
   main#boardZones fieldset {
     float:left;
-    border: solid 1px;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
     vertical-align: top;
     margin: 0% 0.5% 0% 0%;
+    padding: 0% 1% 0% 1%;
   }
 
   main#boardZones legend {
-    margin: 0% 0% 1% 0%;
-    border: solid 1px;
+    margin: 0% 0% 4% 0%;
+    background-color: white;
+    border-radius: 5px 5px 5px 5px;
+    border: solid 2px;
+    border-color: #282828;
     width: 90%;
     text-align: center;
+    font-size: 1.5em;
+    color: #636363;
     padding: 1% 0% 1% 0%;
-    border-color: rgba(144,144,144,0.5);
   }
 
   main#boardZones fieldset li {
@@ -533,5 +560,21 @@ a:active{color: rgb(0,0,0); text-decoration: none;}
     word-wrap: break-word;
     line-height: 1.35em;
   }
+
+ /* .img-zoom {
+    width: 310px;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+}
+
+  .transition {
+    -webkit-transform: scale(2); 
+    -moz-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2);
+  }*/
+
 
 }

@@ -1,27 +1,21 @@
 Template.boardZones.helpers({
   zones: function(){
-    var zones = []
-    var board = Boards.findOne({title: "Demo"})
-    if(board !== undefined){
-      _.each(board.zones, function(zoneId){
-        var zone = _.first(Zones.find(zoneId).fetch())
-        var PostitsForZone = Postits.getByZone(zoneId);
-        zonePostits = new Object({zone: zone, postits: PostitsForZone});
-        zones.push(zonePostits);
-      })
-    }
-    return zones
+    return this.zones
   },
   zoneHeight: function(){
     return $(window).height()-75
   },
+<<<<<<< HEAD
   zoneWidth: function(){
     var board = _.first(Boards.find().fetch())
     return board.zoneWidth-1
+=======
+  zoneWidth: function(parentContext){
+    return parentContext.board.zoneWidth;
+>>>>>>> 58a51d0e37aa6b86edc7d150a9620231ca373106
   },
   rotate: function(){
-    var deg = Math.floor((Math.random()*10)+1) - 5
-    return deg
+    return Math.floor((Math.random()*10)+1) - 5
   }
 })
 
@@ -59,7 +53,7 @@ Template.board.rendered = function(){
       }
     }
 
-    $('#'+element).css('box-shadow','-43px 44px 5px 0px rgba(144,144,144,0.8)')
+    $('#'+element).css('opacity', '0.6')
     $('#'+element).css('position','absolute')
     $('#'+element).css('left',pointer.x+'px')
     $('#'+element).css('top',pointer.y+'px')
@@ -74,7 +68,7 @@ Template.board.rendered = function(){
       Postits.update(element,{$set:{zoneId: zoneInsertId}})
     }catch(err){
       $('#'+element).css('position','static')
-      $('#'+element).css('box-shadow','0px 0px 0px 0px rgba(144,144,144)')
+      $('#'+element).css('opacity', '1')
     }
 
     element = undefined

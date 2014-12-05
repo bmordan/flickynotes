@@ -15,12 +15,8 @@ describe("pointer object", function(){
 			expect(pointer.y).toEqual(200)
 		});
 
-		it('default visibility should be set to inline', function(){
-			expect(pointer.visible).toEqual('inline')
-		});
-
 		it('default element should be null', function(){
-			expect(pointer.element).toEqual(null)
+			expect(pointer.element).toEqual("nav#pointer")
 		});			
 	// });
 });

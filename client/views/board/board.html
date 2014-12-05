@@ -10,7 +10,7 @@
 
 <template name="boardZones">
     {{#each zones}}
-      <fieldset id="{{zone._id._str}}" style="width:{{zoneWidth}}%;height:{{zoneHeight}}px;">
+      <fieldset id="{{zone._id._str}}" style="width:{{zoneWidth ..}}%;height:{{zoneHeight}}px;">
         <legend>{{zone.name}}</legend>
           {{#each postits}}
             <li id="{{_id}}" style="transform: rotate({{rotate}}deg);">{{content}}</li>
@@ -28,4 +28,3 @@
 <template name="clearButton">
   <nav><a id="boardClearButton">Clear</a></nav>
 </template>
-
