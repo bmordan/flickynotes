@@ -469,8 +469,8 @@ kbd{
 
   nav#pointer{
     position: absolute;
-    width:2.2em;
-    height:2.2em;
+    width:1.7em;
+    height:1.7em;
     box-shadow: -2px 3px 4px rgba(144,144,144,1);
     background-color: hotpink;
     border-radius: 49%;
